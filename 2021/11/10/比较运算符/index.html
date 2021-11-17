@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="比较运算符我们今天主要继昨天算术运算符的学习来进一步学习比较运算符，比较运算符是将两串字符串的头一个字母进行比较，若第一个字母都相同，则继续将第二个字母进行比较，循序渐进。下面通过一段代码来理解： 123document.write(&amp;#x27;[&gt;] \&amp;#x27;aaa\&amp;#x27; &gt; \&amp;#x27;bbb\&amp;#x27; ?&amp;#x27; + (&amp;#x27;aaa&amp;#x27; &amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="唯初 · Blog">
+<meta property="og:url" content="http://example.com/2021/11/10/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
+<meta property="og:site_name" content="唯初 · Blog">
+<meta property="og:description" content="比较运算符我们今天主要继昨天算术运算符的学习来进一步学习比较运算符，比较运算符是将两串字符串的头一个字母进行比较，若第一个字母都相同，则继续将第二个字母进行比较，循序渐进。下面通过一段代码来理解： 123document.write(&amp;#x27;[&gt;] \&amp;#x27;aaa\&amp;#x27; &gt; \&amp;#x27;bbb\&amp;#x27; ?&amp;#x27; + (&amp;#x27;aaa&amp;#x27; &amp;g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-10T14:34:30.491Z">
+<meta property="article:modified_time" content="2021-11-11T14:22:11.479Z">
+<meta property="article:author" content="唯初">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/11/10/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 唯初 · Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">唯初 · Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-10 22:34:30" itemprop="dateCreated datePublished" datetime="2021-11-10T22:34:30+08:00">2021-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-11 22:22:11" itemprop="dateModified" datetime="2021-11-11T22:22:11+08:00">2021-11-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>我们今天主要继昨天算术运算符的学习来进一步学习比较运算符，比较运算符是将两串字符串的头一个字母进行比较，若第一个字母都相同，则继续将第二个字母进行比较，循序渐进。下面通过一段代码来理解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;bbb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;bbb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;abb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;abb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;aBb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;aBb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的运行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;bbb&#x27; ?false</span><br><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;abb&#x27; ?false</span><br><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;aBb&#x27; ?true</span><br></pre></td></tr></table></figure>
+
+<p>相信通过代码示例，大家可以更好的学习本讲知识，主要是ASCII码的比较。</p>
+<p>常见ASCII码的大小规则：0<del>9&lt;A</del>Z&lt;a~z。</p>
+<p>1）数字比字母要小。如 “7”&lt;“F”；</p>
+<p>2）数字0比数字9要小，并按0到9顺序递增。如 “3”&lt;“8” ；</p>
+<p>3）字母A比字母Z要小，并按A到Z顺序递增。如“A”&lt;“Z” ；</p>
+<p>4）同个字母的大写字母比小写字母要小32。如“A”&lt;“a” 。</p>
+<p>几个常见字母的ASCII码大小： “A”为65；“a”为97；“0”为 48 ，65～90为26个大写英文字母，97～122号为26个小写英文字母。</p>
+<p>下面我们来看个更深层次的比较：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&lt;] \&#x27;25\&#x27; &lt; \&#x27;4\&#x27; ?&#x27; + (&#x27;25&#x27; &lt; &#x27;4&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>这个运算结果是  true ，这个主要就是 2 和 4 在比较，还是比较容易理解的，那么，有个更值得思考的东西来了，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&lt;] \&#x27;25\&#x27; &lt; 4 ?&#x27; + (&#x27;25&#x27; &lt; 4) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>这个会报错吗？字符串可以直接跟数字进行比较吗？可以肯定的告诉你，这个是不会报错的，并且运行结果是 false 。相信看到这个运算结果大家已经知道为什么了，是的，在这里，电脑将字符串 ‘ 25 ’ 转化为数字 25 ，然后去与 4 进行比较，得到结果是错误的。这就有点类似上节的字符串拼接那块的 -号，只要有一个字符串和一个数字进行运算，那么都会将字符串强制转换为数字去运算，在这里，需要大家将这个记忆下来，没有规则可言。</p>
+<p>下面学习三目运算符，三目运算符，又称条件运算符。它是唯一有3个操作数的运算符，有时又称为三元运算符。对于条件表达式b ? x : y，先计算条件b，然后进行判断。如果b的值为true，计算x的值，运算结果为x的值；否则，计算y的值，运算结果为y的值。一个条件表达式绝不会既计算x，又计算y。条件运算符是右结合的，也就是说，从右向左分组计算。例如，a ? b : c ? d : e将按a ? b : (c ? d : e)执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[?:] 25&gt;4?&#x27; + (25&gt;4 ? &#x27;l&#x27; : &#x27;s&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[?:] 25&gt;4?l</span><br></pre></td></tr></table></figure>
+
+<p>如果大家理解了三目运算符的定义，这个是比较容易理解的。25 和 4 比较，结果是真，所以运算结果为 l ,否则为 s 。</p>
+<p>对于 == ，主要通过以下代码了解以下即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] null == undefined ?&#x27; + (null == undefined) + &#x27;&lt;br&gt;&#x27;);   //   true</span><br><span class="line">document.write(&#x27;[==] \&#x27;NaN\&#x27; == NaN ?&#x27; + (&#x27;NaN&#x27; == NaN) + &#x27;&lt;br&gt;&#x27;);    //   false</span><br></pre></td></tr></table></figure>
+
+<p>运行结果附在语句后面，这个其实在前面所讲的知识中就有涉及到，所以比较容易理解，就不深入讲解了。</p>
+<p>接下来，我们看个工作中较为实用的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] false == 0 ?&#x27; + (false == 0) + &#x27;&lt;br&gt;&#x27;);  // true</span><br><span class="line">document.write(&#x27;[==] true == 1 ?&#x27; + (true == 1) + &#x27;&lt;br&gt;&#x27;);    //true</span><br></pre></td></tr></table></figure>
+
+<p>这两个运行结果都是 true ，跟 null == undefined 是一样的道理，都是一对的使用，就像一把钥匙开一把锁，在工作中是比较经常用到的。</p>
+<p>下面呢，看个具有挑战性的东西，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] null == 0 ?&#x27; + (null == 0) + &#x27;&lt;br&gt;&#x27;);    //false</span><br></pre></td></tr></table></figure>
+
+<p>对于一些 c++ 学的比较好的同学，可能会认为返回结果是 true ，但是，这边是返回 false ，这个是要知道的。</p>
+<h5 id="规则："><a href="#规则：" class="headerlink" title="规则："></a>规则：</h5><ul>
+<li>如果一个运算数是 Boolean 值，在检查相等性之前把它转换成数字值。false 转换为 0，true 为 1。</li>
+<li>如果一个运算数是字符串，另一个是数字，在检查相等性之前，要尝试把字符串转换为数字。</li>
+<li>如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换为字符串。</li>
+<li>如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换为数字。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/02/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/11/%E5%88%9D%E8%B0%88js/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%84%E5%88%99%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">规则：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">唯初</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯初</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

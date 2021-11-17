@@ -145,6 +145,725 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/16/%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/16/%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-16 22:27:07 / 修改时间：23:03:00" itemprop="dateCreated datePublished" datetime="2021-11-16T22:27:07+08:00">2021-11-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+<li><p>创建数组</p>
+</li>
+<li><p>for in</p>
+</li>
+<li><p>concat()</p>
+</li>
+<li><p>join()</p>
+</li>
+<li><p>sort()</p>
+<p>学到5.9</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/14/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/14/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-14 20:50:26" itemprop="dateCreated datePublished" datetime="2021-11-14T20:50:26+08:00">2021-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-16 22:26:53" itemprop="dateModified" datetime="2021-11-16T22:26:53+08:00">2021-11-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="转换成数字-ds5-1-js"><a href="#转换成数字-ds5-1-js" class="headerlink" title="转换成数字(ds5-1.js)"></a>转换成数字(ds5-1.js)</h5><ul>
+<li><p><input disabled="" type="checkbox">  typeof</p>
+</li>
+<li><p><input disabled="" type="checkbox">  隐式</p>
+</li>
+<li><p><input disabled="" type="checkbox">  显示</p>
+<ul>
+<li><p>Number()</p>
+</li>
+<li><p>parseInt()</p>
+</li>
+<li><p>parseFloat()</p>
+</li>
+<li><p>isNaN</p>
+<p>首先来看 typeof:</p>
+<p>typeof 操作符返回一个字符串，显示计算的操作数的类型。</p>
+<p>代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var x=1;</span><br><span class="line">console.log(&#x27;[typeof] x &#x27; + typeof(x));  //number</span><br><span class="line"></span><br><span class="line">x=&#x27;abc&#x27;;</span><br><span class="line">console.log(&#x27;[typeof] x &#x27; + typeof(x));  //string </span><br><span class="line"></span><br><span class="line">x=true;</span><br><span class="line">console.log(&#x27;[typeof] x &#x27; + typeof(x));   //boolean</span><br><span class="line"></span><br><span class="line">x=null;</span><br><span class="line">console.log(&#x27;[typeof] x &#x27; + typeof(x));   //object</span><br><span class="line"></span><br><span class="line">x=undefined;</span><br><span class="line">console.log(&#x27;[typeof] x &#x27; + typeof(x));   //undefined</span><br><span class="line"></span><br><span class="line">var x2;</span><br><span class="line">console.log(&#x27;[typeof] x2 &#x27; + typeof(x2));  //undefined</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>隐式类型转换，示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var sNum=&#x27;2&#x27;;</span><br><span class="line">var iNum=2;</span><br><span class="line">var ret=sNum + iNum;</span><br><span class="line">console.log(&#x27;[隐式类型转换]&#x27; + typeof ret);//22</span><br><span class="line"></span><br><span class="line">ret=iNum - sNum;</span><br><span class="line">console.log(&#x27;[隐式类型转换]&#x27; + typeof ret);//0</span><br></pre></td></tr></table></figure>
+
+<p>看到上面的代码，不知道大家有没有联想到我们之前运算符那块所学的知识点，是的，隐式类型转换跟 + 号运算符的转换类型是一样的。到后面我们学习的知识点会越来越多，希望大家能够做到很好的复习，把前后所学知识点串联在一块，方便知识记忆和检查。</p>
+<p>接下来我们学习显示类型转换中的 </p>
+<h6 id="Number-函数，示例："><a href="#Number-函数，示例：" class="headerlink" title="Number() 函数，示例："></a>Number() 函数，示例：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var iNum=Number(false);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);   //0</span><br><span class="line"></span><br><span class="line">var iNum=Number(true);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);   //1</span><br><span class="line"></span><br><span class="line">var iNum=Number(undefined);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);  //NaN</span><br><span class="line"></span><br><span class="line">iNum = Number(null);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);  //0</span><br><span class="line"></span><br><span class="line">iNum=Number(&#x27;8&#x27;);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);   //8,在这边 Number 不分整数和小数</span><br><span class="line"></span><br><span class="line">iNum=Number(&#x27;1.5&#x27;);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);   //1.5</span><br><span class="line"></span><br><span class="line">iNum=Number(&#x27;3.5.8&#x27;);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);   //NaN</span><br><span class="line"></span><br><span class="line">iNum=Number(&#x27; &#x27;);</span><br><span class="line">console.log(&#x27;[Number()] = &#x27; + iNum);    //0</span><br></pre></td></tr></table></figure>
+
+<p>对于这块，有个记忆口诀传授给大家，false,null,’ ‘ =&gt;0; undefined,不是数的 =&gt;NaN。结合上面的代码，大家就可以轻易理解这两句口诀的意义。</p>
+<h6 id="parseInt"><a href="#parseInt" class="headerlink" title="parseInt()"></a>parseInt()</h6><p>parse（）的作用是从字符串中非数字的位置切开，只保留数字部分,即完全按照看上去像的方法来 parse，示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">var iNum=parseInt(&#x27;1234&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //1234</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;13234aa&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);   //1234</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;1.5.5&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //1</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;100px&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //100</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;h31213&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //NaN</span><br><span class="line"></span><br><span class="line">//C/C++ 中以 0x 开头的表示16进制，而汇编语言中以----h表示16进制</span><br><span class="line">iNum=parseInt(&#x27;0xA0&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);  //160</span><br><span class="line"></span><br><span class="line">//C/C++ 中 0----表示八进制数，但是在 js 中是无效的</span><br><span class="line">iNum=parseInt(&#x27;088&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //88，仍然以十进制数输出</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27; &#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //NaN</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;1.1E4&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum); //1,在这边科学计数法被当作浮点数来识别</span><br><span class="line">iNum=parseFloat(&#x27;1.1E4&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);   //11000</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;A0&#x27;,16);//转换成 16 进制</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);  //160</span><br><span class="line"></span><br><span class="line">iNum=parseInt(&#x27;70&#x27;,8);//转换成 8 进制</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);   //560</span><br><span class="line"></span><br><span class="line">iNum=parseInt(undefined);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);  //NaN</span><br><span class="line"></span><br><span class="line">iNum=parseInt(null);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);   //NaN</span><br><span class="line"></span><br><span class="line">iNum=parseInt(false);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);  //NaN</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>学到这，我们已经了解了 Number() 和 parseInt() 两个函数了，那么应该如何记忆这两个函数的区别呢？</p>
+<ul>
+<li><p>Number 本质上可以转化为数字，parseInt 是看上去像数字的；</p>
+</li>
+<li><p>Number 可以，parseInt 不可以，例如：false , null , ‘ ‘;</p>
+</li>
+<li><p>Number 不可以，parseInt 可以，比如：数字开头参杂其他的；</p>
+</li>
+<li><p>都可以，undefined、字母开头的字符串。</p>
+<h6 id="parseFloat"><a href="#parseFloat" class="headerlink" title="parseFloat()"></a>parseFloat()</h6><p>parseFloat 和 parseInt 有一些相似之处，大家可以看示例中的代码加以理解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var fNum=parseFloat(&#x27;10&#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum); // 10</span><br><span class="line"></span><br><span class="line">fNum=parseFloat(&#x27;1.0&#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum);   //1</span><br><span class="line"></span><br><span class="line">fNum=parseFloat(&#x27;10.7.6&#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum);   //10.7</span><br><span class="line"></span><br><span class="line">fNum=parseFloat(&#x27; 1.0 &#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum);   //1,空格并不影响结果数值</span><br><span class="line"></span><br><span class="line">fNum=parseFloat(&#x27;1.0dasf&#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum);   //1</span><br><span class="line"></span><br><span class="line">iNum=parseFloat(&#x27;1.1E4&#x27;);</span><br><span class="line">console.log(&#x27;[parseInt()] = &#x27; + iNum);   //11000</span><br><span class="line"></span><br><span class="line">fNum=parseFloat(&#x27;1.1E5aaa&#x27;);</span><br><span class="line">console.log(&#x27;[parseFloat()] = &#x27; + fNum);   //110000</span><br></pre></td></tr></table></figure>
+
+<p>根据上述代码，大家是否发现其实 parseFloat 和 parseInt 的差别就在于科学计数法和小数点这块，即 parseFloat 支持科学计数法和小数点。</p>
+<h6 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN()"></a>isNaN()</h6><p>isNaN() 主要是调用了 Number() ,请看示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(NaN));  //true</span><br><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(&#x27;aaa&#x27;));  //true</span><br><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(undefined));  //true</span><br><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(null));  //false</span><br><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(&#x27;12345&#x27;));  //false</span><br><span class="line">console.log(&#x27;[isNaN] = &#x27; + isNaN(&#x27; &#x27;));  //false</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="转换成字符串"><a href="#转换成字符串" class="headerlink" title="转换成字符串"></a>转换成字符串</h5><ul>
+<li><p>隐式</p>
+</li>
+<li><p>显示</p>
+<ul>
+<li><p>String()</p>
+</li>
+<li><p>toString()</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/11/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/11/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-11 22:47:26" itemprop="dateCreated datePublished" datetime="2021-11-11T22:47:26+08:00">2021-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-14 20:50:16" itemprop="dateModified" datetime="2021-11-14T20:50:16+08:00">2021-11-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>今天接着学习逻辑运算符，所谓的逻辑运算符有： ！ &amp;&amp;  ||。</p>
+<p>我们先来看 &amp;&amp; ，当&amp;&amp;连接语句时，两边的语句会转化为布尔类型（Boolean），然后再进行运算，具体的运算规则如下：</p>
+<p>1、两边条件都为true时，结果才为true；</p>
+<p>2、如果有一个为false，结果就为false；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&amp;&amp;] true &amp;&amp; false ?&#x27; + (true &amp;&amp; false) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&amp;&amp;] true &amp;&amp; true ?&#x27; + (true &amp;&amp; true) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&amp;&amp;] false &amp;&amp; false ?&#x27; + (false &amp;&amp; false) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&amp;&amp;] false &amp;&amp; true ?&#x27; + (false &amp;&amp; true) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[&amp;&amp;] true &amp;&amp; false ?false</span><br><span class="line">[&amp;&amp;] true &amp;&amp; true ?true</span><br><span class="line">[&amp;&amp;] false &amp;&amp; false ?false</span><br><span class="line">[&amp;&amp;] false &amp;&amp; true ?false</span><br></pre></td></tr></table></figure>
+
+<p>把代码跟上面所说的两条运算规则结合在一起学习，就可以理解为什么会是最后这样的运算结果了。</p>
+<p>3、当第一个条件为false时，就不再判断后面的条件</p>
+<p>注意：当数值参与逻辑与运算时，结果为true，那么会返回的会是第二个为真的值；如果结果为false，返回的会是第一个为假的值。</p>
+<p>在这里，要补充的一点是，0 , undefined , null , NaN , ‘’  等都等价于 false ，以下我们来看这段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&amp;&amp;] undefined &amp;&amp; true ?&#x27; + (undefined &amp;&amp; true) + &#x27;&lt;br&gt;&#x27;);  //undefied</span><br><span class="line">document.write(&#x27;[&amp;&amp;] null &amp;&amp; true ?&#x27; + (null &amp;&amp; true) + &#x27;&lt;br&gt;&#x27;);    //null</span><br><span class="line">document.write(&#x27;[&amp;&amp;] NaN &amp;&amp; true ?&#x27; + (NaN &amp;&amp; true) + &#x27;&lt;br&gt;&#x27;);    //NaN</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果我直接附在语句的后面，可以看到的是，第一个条件语句都为假，所以返回的值是第一个为假的值。</p>
+<p>接下来我们学习逻辑运算符 || ，||表示逻辑或，会尝试将符号左侧转换为<code>Boolean</code>对象，如果左侧为<code>true</code>则表达式结果为左侧值，如果为<code>false</code>，则表达式结果为右侧值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[||] true || false ?&#x27; + (true || false) + &#x27;&lt;br&gt;&#x27;);  //true</span><br><span class="line">document.write(&#x27;[||] true || true ?&#x27; + (true || true) + &#x27;&lt;br&gt;&#x27;);  //true </span><br><span class="line">document.write(&#x27;[||] false || false ?&#x27; + (false || false) + &#x27;&lt;br&gt;&#x27;);   //false</span><br><span class="line">document.write(&#x27;[||] false || true ?&#x27; + (false || true) + &#x27;&lt;br&gt;&#x27;);   //true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>大家可以结合代码学习，这块知识点还是比较容易好理解的。</p>
+<p>最后，来谈运算符 ！，所谓的 ！，通俗点理解就是非对即错，非错即对。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[!] !false ?&#x27; + (!false) + &#x27;&lt;br&gt;&#x27;);   //true</span><br></pre></td></tr></table></figure>
+
+<p>接下来继续学习运算符的优先级，如下表所示：</p>
+<img src="C:\Users\xy\AppData\Roaming\Typora\typora-user-images\image-20211113200923868.png" alt="image-20211113200923868" style="zoom:80%;" />
+
+<p>我们可以通过底下这段代码来理解优先级的运用，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var iNum = 4;</span><br><span class="line">document.write(&#x27;[1]&#x27; + (30&lt;15?!true:true,iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">//30&lt;15?!true:true,iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//false?!true:true,iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//false?false:true,iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//true,iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//iNum*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//4*4+5&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//21&lt;3==25&gt;24&amp;&amp;false||true</span><br><span class="line">//false==true&amp;&amp;false||true</span><br><span class="line">//false&amp;&amp;false||true</span><br><span class="line">//false||true</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
+
+<p>注释掉的部分是解表达式的过程，对于逗号表达式，只显示最后一个逗号后面的值，前面的全抛掉。当然，建议大家先自己根据理解算一下结果，再去看解答过程。</p>
+<p>最后，给大家插个以后较会经常被问到的知识点，我们当初学习 c 语言的时候，对于变量替换通常的做法就是引入第三个变量，但是，面试的时候经常会有一些较为奇葩的问法，如果不借助第三个变量，要怎么实现变量替换呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var iNum2 = 123;</span><br><span class="line"> var iNum3 = 456;</span><br><span class="line">iNum2 += iNum3;  //123 + 456</span><br><span class="line">iNum3 = iNum2 - iNum3;  // 123</span><br><span class="line">iNum2 = iNum2 - iNum3;  // 456  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这种做法希望大家可以会，免得在面试的时候因为这样一道题目而吃亏。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/11/%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/11/%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-11 19:49:51" itemprop="dateCreated datePublished" datetime="2021-11-11T19:49:51+08:00">2021-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-17 14:52:49" itemprop="dateModified" datetime="2021-11-17T14:52:49+08:00">2021-11-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="变量和数据类型："><a href="#变量和数据类型：" class="headerlink" title="变量和数据类型："></a>变量和数据类型：</h3><p>引入JS,动态产生Hello world(document.write)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;&lt;!--形成封闭标签--&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;&lt;!--显示相关--&gt;</span><br><span class="line">		&lt;!--&lt;div&gt;Hello world&lt;/div&gt;--&gt;</span><br><span class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		document.write(&#x27;&lt;div&gt;Hello2 world&lt;/div&gt;&#x27;)</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>jS 代码引入有：页面内嵌代码、外部引入代码（结构、样式、代码，三者分离）。变量是存储信息的容器。</p>
+<p>变量命名规则有：</p>
+<ul>
+<li>使用描述性的名称，比如：age,sum;</li>
+</ul>
+<ul>
+<li>变量必须以字母、$、_开头，后面可以接字母、$、_数字；</li>
+</ul>
+<ul>
+<li>变量也能以$和_符号开头（不推荐这么做）；</li>
+</ul>
+<ul>
+<li>变量不能使用关键字，保留字；</li>
+</ul>
+<ul>
+<li>变量名称对大小写敏感（Javascript 语句和 Javascript 变量都对大小写敏感）。</li>
+</ul>
+<p>数据类型有：</p>
+<ul>
+<li>原型类型：number,string,boolean,underfined,null；</li>
+<li>引用类型：array,object,function</li>
+</ul>
+<p>GPO处理浮点数，而CPO处理定点数，如果处理浮点数的话速度非常慢。</p>
+<p>进制数表示代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var iNum=86;</span><br><span class="line">document.write(&#x27;iNum=&#x27;+iNum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">//八进制</span><br><span class="line">var oNum=070;</span><br><span class="line">document.write(&#x27;oNum=&#x27;+oNum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">//十六进制</span><br><span class="line">var xNum=0x1f;</span><br><span class="line">document.write(&#x27;xNum=&#x27;+xNum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">//浮点数</span><br><span class="line">var fNum=5.01;</span><br><span class="line">document.write(&#x27;fNum=&#x27;+fNum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">//浮点数，科学计数法</span><br><span class="line">fNum=5.61e7;</span><br><span class="line">document.write(&#x27;fNum=&#x27;+fNum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br><span class="line">var INum=Number.MAX_VALUE;</span><br><span class="line">document.write(&#x27;INum=&#x27;+INum+&#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var INum=Number.MAX_VALUE;</span><br><span class="line">document.write(&#x27;INum=&#x27;+INum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">var INum=Number.MIN_VALUE;</span><br><span class="line">document.write(&#x27;INum=&#x27;+INum+&#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>上式代码块分别表示显示出数的最大和最小。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INum=Number.MAX_VALUE*1.1;</span><br><span class="line">document.write(&#x27;INum=&#x27;+INum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;INum==Number.POSITIVE_INFINITY=&#x27;+(INum==Number.POSITIVE_INFINITY)+&#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iNum=86</span><br><span class="line">oNum=56</span><br><span class="line">xNum=31</span><br><span class="line">fNum=5.01</span><br><span class="line">INum=Infinity</span><br><span class="line">INum==Number.POSITIVE_INFINITYtrue</span><br></pre></td></tr></table></figure>
+
+<p>而如果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INum=Number.MAX_VALUE*1.1;</span><br><span class="line">document.write(&#x27;INum=&#x27;+INum+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;INum==Number.POSITIVE_INFINITY=&#x27;+INum==Number.POSITIVE_INFINITY+&#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>则运行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iNum=86</span><br><span class="line">oNum=56</span><br><span class="line">xNum=31</span><br><span class="line">fNum=5.01</span><br><span class="line">INum=Infinity</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+
+<p>通过上面例子，可以知道的是：在表达式中，+的优先级大于 ==的优先级。</p>
+<p>Javascript中单引号和双引号可以无差别使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var sToken=&quot;Hello world&quot;;</span><br><span class="line">document.write(&#x27;sToken=&#x27;+sToken+&#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br><span class="line">sToken=&#x27;Hello world&#x27;;</span><br><span class="line">document.write(&#x27;sToken=&#x27;+sToken+&#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sToken=Hello world</span><br><span class="line">sToken=Hello world</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/11/%E5%88%9D%E8%B0%88js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/11/%E5%88%9D%E8%B0%88js/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-11 19:48:47" itemprop="dateCreated datePublished" datetime="2021-11-11T19:48:47+08:00">2021-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-17 15:06:41" itemprop="dateModified" datetime="2021-11-17T15:06:41+08:00">2021-11-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="一、前端工程师的职业发展"><a href="#一、前端工程师的职业发展" class="headerlink" title="一、前端工程师的职业发展"></a>一、前端工程师的职业发展</h3><p>基于 web 的互联网公司技术分为三个层面：前端（Pc上添加HTML、css、Js）、Java/pHp、数据。要做到不可替代有三个方面：深度、广度以及与时俱进，所谓的的与时俱进就是作为一个程序员就要不断学习新知识，持续性输入。<br>前端工程师（front-end Web developer）: 软件开发工程师的一个细分领域,适合大学生和在职白领。主要角色有：产品经理、开发工程师、测试工程师、运维工程师，任何一种职位如果可以做到前5%，那么就会相对轻松。从角色的角度来讲，产品经理的门槛相对来说会较低。</p>
+<h3 id="二、javaScript简介"><a href="#二、javaScript简介" class="headerlink" title="二、javaScript简介"></a>二、javaScript简介</h3><p>前端工程师三大基础知识：HTML(内容)、JS、css（展示）。<br>三大框架：Angular JS、React、Vue；从运行效率来说：C&lt;java&lt;js；浏览器的内核：IE:Trident、Chrome、Safari：Webkit、FireFox:Gecko、Opera：presto。</p>
+<p>2001年，IE6:从内核中剥离JS引擎；2008年，chrome:V8JS 引擎。</p>
+<p>在这边可以推荐一本书籍：《javaScript权威指南》，这本书可以相当于字典使用，对于 javaScript 的学习建议是： 终身学习、找到适合自己的方法。javascript是一种解释性语言：可以跨平台；针对不同平台不需要重新编译。建议更多学习解释型语言。javacript只支持单线程：同步调用和异步调用。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/10/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-10 22:34:30" itemprop="dateCreated datePublished" datetime="2021-11-10T22:34:30+08:00">2021-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-11 22:22:11" itemprop="dateModified" datetime="2021-11-11T22:22:11+08:00">2021-11-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>我们今天主要继昨天算术运算符的学习来进一步学习比较运算符，比较运算符是将两串字符串的头一个字母进行比较，若第一个字母都相同，则继续将第二个字母进行比较，循序渐进。下面通过一段代码来理解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;bbb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;bbb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;abb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;abb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">document.write(&#x27;[&gt;] \&#x27;aaa\&#x27; &gt; \&#x27;aBb\&#x27; ?&#x27; + (&#x27;aaa&#x27; &gt; &#x27;aBb&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的运行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;bbb&#x27; ?false</span><br><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;abb&#x27; ?false</span><br><span class="line">[&gt;] &#x27;aaa&#x27; &gt; &#x27;aBb&#x27; ?true</span><br></pre></td></tr></table></figure>
+
+<p>相信通过代码示例，大家可以更好的学习本讲知识，主要是ASCII码的比较。</p>
+<p>常见ASCII码的大小规则：0<del>9&lt;A</del>Z&lt;a~z。</p>
+<p>1）数字比字母要小。如 “7”&lt;“F”；</p>
+<p>2）数字0比数字9要小，并按0到9顺序递增。如 “3”&lt;“8” ；</p>
+<p>3）字母A比字母Z要小，并按A到Z顺序递增。如“A”&lt;“Z” ；</p>
+<p>4）同个字母的大写字母比小写字母要小32。如“A”&lt;“a” 。</p>
+<p>几个常见字母的ASCII码大小： “A”为65；“a”为97；“0”为 48 ，65～90为26个大写英文字母，97～122号为26个小写英文字母。</p>
+<p>下面我们来看个更深层次的比较：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&lt;] \&#x27;25\&#x27; &lt; \&#x27;4\&#x27; ?&#x27; + (&#x27;25&#x27; &lt; &#x27;4&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>这个运算结果是  true ，这个主要就是 2 和 4 在比较，还是比较容易理解的，那么，有个更值得思考的东西来了，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[&lt;] \&#x27;25\&#x27; &lt; 4 ?&#x27; + (&#x27;25&#x27; &lt; 4) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>这个会报错吗？字符串可以直接跟数字进行比较吗？可以肯定的告诉你，这个是不会报错的，并且运行结果是 false 。相信看到这个运算结果大家已经知道为什么了，是的，在这里，电脑将字符串 ‘ 25 ’ 转化为数字 25 ，然后去与 4 进行比较，得到结果是错误的。这就有点类似上节的字符串拼接那块的 -号，只要有一个字符串和一个数字进行运算，那么都会将字符串强制转换为数字去运算，在这里，需要大家将这个记忆下来，没有规则可言。</p>
+<p>下面学习三目运算符，三目运算符，又称条件运算符。它是唯一有3个操作数的运算符，有时又称为三元运算符。对于条件表达式b ? x : y，先计算条件b，然后进行判断。如果b的值为true，计算x的值，运算结果为x的值；否则，计算y的值，运算结果为y的值。一个条件表达式绝不会既计算x，又计算y。条件运算符是右结合的，也就是说，从右向左分组计算。例如，a ? b : c ? d : e将按a ? b : (c ? d : e)执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[?:] 25&gt;4?&#x27; + (25&gt;4 ? &#x27;l&#x27; : &#x27;s&#x27;) + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[?:] 25&gt;4?l</span><br></pre></td></tr></table></figure>
+
+<p>如果大家理解了三目运算符的定义，这个是比较容易理解的。25 和 4 比较，结果是真，所以运算结果为 l ,否则为 s 。</p>
+<p>对于 == ，主要通过以下代码了解以下即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] null == undefined ?&#x27; + (null == undefined) + &#x27;&lt;br&gt;&#x27;);   //   true</span><br><span class="line">document.write(&#x27;[==] \&#x27;NaN\&#x27; == NaN ?&#x27; + (&#x27;NaN&#x27; == NaN) + &#x27;&lt;br&gt;&#x27;);    //   false</span><br></pre></td></tr></table></figure>
+
+<p>运行结果附在语句后面，这个其实在前面所讲的知识中就有涉及到，所以比较容易理解，就不深入讲解了。</p>
+<p>接下来，我们看个工作中较为实用的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] false == 0 ?&#x27; + (false == 0) + &#x27;&lt;br&gt;&#x27;);  // true</span><br><span class="line">document.write(&#x27;[==] true == 1 ?&#x27; + (true == 1) + &#x27;&lt;br&gt;&#x27;);    //true</span><br></pre></td></tr></table></figure>
+
+<p>这两个运行结果都是 true ，跟 null == undefined 是一样的道理，都是一对的使用，就像一把钥匙开一把锁，在工作中是比较经常用到的。</p>
+<p>下面呢，看个具有挑战性的东西，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;[==] null == 0 ?&#x27; + (null == 0) + &#x27;&lt;br&gt;&#x27;);    //false</span><br></pre></td></tr></table></figure>
+
+<p>对于一些 c++ 学的比较好的同学，可能会认为返回结果是 true ，但是，这边是返回 false ，这个是要知道的。</p>
+<h5 id="规则："><a href="#规则：" class="headerlink" title="规则："></a>规则：</h5><ul>
+<li>如果一个运算数是 Boolean 值，在检查相等性之前把它转换成数字值。false 转换为 0，true 为 1。</li>
+<li>如果一个运算数是字符串，另一个是数字，在检查相等性之前，要尝试把字符串转换为数字。</li>
+<li>如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换为字符串。</li>
+<li>如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换为数字。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/02/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/02/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-02 18:03:30" itemprop="dateCreated datePublished" datetime="2021-11-02T18:03:30+08:00">2021-11-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-10 23:12:49" itemprop="dateModified" datetime="2021-11-10T23:12:49+08:00">2021-11-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>在算术运算符中，+ 号有两种意义：</p>
+<ul>
+<li><p>数字加法；</p>
+</li>
+<li><p>字符串拼接；</p>
+<p>在本节当中所讲知识点主要偏向实验性的，可以参考一下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var iNum=3+3;</span><br><span class="line">document.write(&#x27;[+] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br><span class="line">iNum=iNum+3;</span><br><span class="line">document.write(&#x27;[+] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br><span class="line">iNum=Number.MAX_VALUE+1E307;// number 表示的最大值</span><br><span class="line">document.write(&#x27;[+] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">iNum=iNum+1E307;</span><br><span class="line">document.write(&#x27;[+] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[+] iNum=6</span><br><span class="line">[+] iNum=9</span><br><span class="line">[+] iNum=Infinity</span><br><span class="line">[+] iNum=Infinity</span><br></pre></td></tr></table></figure>
+
+<p>知识扩展：Infinity</p>
+<p>在 Js 中，Infinity指的是任何超过浮点数上限（1.7976931348623157E+10308）的值，对于-Infinity则是指超过浮点数下限（-1.7976931348623157E+10308）的值。Infinity的类型为number。当怀疑某个值过大时，可以检查它是否为Infinity；特殊的是，将Infinity与它自己相减时，结果为NaN。</p>
+<p>NaN:</p>
+<p>首先需要注意大小写，Js中定义的是NaN，而不是NAN</p>
+<ol>
+<li>Js中使用NaN（通常被称为非数字，Not a Number）来表示它无法表示的数值结果，如0/0</li>
+<li>NaN是Js中唯一一个与自身不相等的值，即NaN != NaN。实际上，NaN与任何东西（包括它自身）都不相等，因此在检查时，不能通过<code>if(xx == NaN)</code>这种方式判断，而需要使用特殊函数isNaN（当值为NaN时，返回true）</li>
+<li>NaN的类型是number，所以与其把NaN叫做“不是数字”，还不如称之为“无法表示的数字”。</li>
+</ol>
+<p>关于 NaN ,可以看下面代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iNum = Number.Infinity + 1;//返回值为 NaN ,记下就行</span><br><span class="line">document.write(&#x27;[+] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>返回结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[+] iNum=NaN</span><br></pre></td></tr></table></figure>
+
+<p>这是一道面试中经常会被问到的问题，对于这个问题只能记下。</p>
+<p>下面让我们一起来学习 + 号字符串的拼接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var sToken=&#x27;abc&#x27; + &#x27;edf&#x27;;</span><br><span class="line">document.write(&#x27;[+] sToken =&#x27; + sToken + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line"></span><br><span class="line">var sToken =&#x27;5&#x27; + 5;//返回值是 55 ，这边做了隐形的类型转换</span><br><span class="line">document.write(&#x27;[+] sToken =&#x27; + sToken + &#x27;&lt;br&gt;&#x27;);</span><br><span class="line">var sToken = 5 + &#x27;5&#x27;;//将数字转化为字符串</span><br><span class="line">document.write(&#x27;[+] sToken =&#x27; + sToken + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[+] sToken =abcedf</span><br><span class="line">[+] sToken =55</span><br><span class="line">[+] sToken =55</span><br></pre></td></tr></table></figure>
+
+<p>对于第一个结果大家大部分可以理解，为什么第二个跟第三个结果是这样子的呢？在+ 号字符串拼接中，计算机做了隐性的类型转换，将数字转化为字符串。那么，我们再来看以下这个代码，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var sToken =&#x27;5&#x27; - 5;</span><br><span class="line">document.write(&#x27;[+] sToken =&#x27; + sToken + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>大家最开始想到的返回值是多少呢，学过C语言以及c++的同学可能会感到很疑惑，代码可以这样写吗？这段代码是可以运行的，结果是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[+] sToken =0</span><br></pre></td></tr></table></figure>
+
+<p>计算机将前面的字符串转化为数字，-号只有数字减法，所以最终结果为0。</p>
+<p>下面我们来学习 ++ 运算符：++ 在Js中已经无较大必要了 ，它 等价于  iNum =iNum+1。有两种表现形式，一个是先自加后执行运算，另一个是先执行后自加。可以通过以下几个代码理解：</p>
+<ol>
+<li>先自加后执行运算</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iNum=5;</span><br><span class="line">document.write(&#x27;[++] iNum=&#x27; + ++iNum + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>结果是 6 ，其实对于这种代码写法只是为了方便学习者学习，在以后工作中这种代码写法是万万不可行的，一般标准写法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iNum=5;</span><br><span class="line">++iNum;</span><br><span class="line">document.write(&#x27;[++] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>这种写法的执行结果也是 6 ，但整体给人的感觉就较为规范整齐，也是公司老板愿意看到的结果。</p>
+<p>  2.先执行运算后自加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iNum=5;</span><br><span class="line">document.write(&#x27;[++] iNum=&#x27; + iNum++ + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>上面结果的执行结果是 5 。</p>
+<p>下面我们把这两者结合在一起运算，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iNum=7;</span><br><span class="line">iNum=10 — ++iNum  + ++iNum - iNum++ - iNum++;</span><br><span class="line">document.write(&#x27;[++] iNum=&#x27; + iNum + &#x27;&lt;br&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的运算结果是  -8。</p>
+<p>主要的运算思路是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">iNum:7 </span><br><span class="line">iNum=10 — ++iNum  + ++iNum - iNum++ - iNum++   iNum:8</span><br><span class="line">iNum=10 — 8 + ++iNum - iNum++ - iNum++</span><br><span class="line">iNum=2 + ++iNum - iNum++ - iNum++      iNum:9</span><br><span class="line">iNum=2 + 9- iNum++ - iNum++       iNum:9</span><br><span class="line">iNum=11 - iNum++ - iNum++    iNum:9</span><br><span class="line">iNum=11 - 9 - iNum++    iNum=10</span><br><span class="line">iNum=2 - 10</span><br><span class="line">iNum=-8</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<p>在这边呢，建议大家在做这种较为复杂的运算题时，采用这种逐步计算的方法，避免错误。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/31/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -277,7 +996,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
