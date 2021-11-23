@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="title:数组4.1  数组今天又是学习的一天，接下来我们开始看数组，这是一个非常重要的对象，而且是我们除了原始对象以外，经常用到的一个对象，对于整个 Js 的学习非常重要。本次学习主要学习数组的定义，即如何创建数组，几种轮询数组的方法，还有就是一些数组常用的函数。 4.11 创建数组首先，我们学习的是怎么创建一个数组并把它初始化，这就好比如我们在建房子的时候，得先了解怎么建房，建成什么规格的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="唯初 · Blog">
+<meta property="og:url" content="http://example.com/2021/11/16/04-%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:site_name" content="唯初 · Blog">
+<meta property="og:description" content="title:数组4.1  数组今天又是学习的一天，接下来我们开始看数组，这是一个非常重要的对象，而且是我们除了原始对象以外，经常用到的一个对象，对于整个 Js 的学习非常重要。本次学习主要学习数组的定义，即如何创建数组，几种轮询数组的方法，还有就是一些数组常用的函数。 4.11 创建数组首先，我们学习的是怎么创建一个数组并把它初始化，这就好比如我们在建房子的时候，得先了解怎么建房，建成什么规格的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111172202353.PNG">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111192121826.PNG">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111212138521.PNG">
+<meta property="article:published_time" content="2021-11-16T14:27:07.590Z">
+<meta property="article:modified_time" content="2021-11-21T14:56:31.249Z">
+<meta property="article:author" content="唯初">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111172202353.PNG">
+
+<link rel="canonical" href="http://example.com/2021/11/16/04-%E6%95%B0%E7%BB%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 唯初 · Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">唯初 · Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/16/04-%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-16 22:27:07" itemprop="dateCreated datePublished" datetime="2021-11-16T22:27:07+08:00">2021-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-21 22:56:31" itemprop="dateModified" datetime="2021-11-21T22:56:31+08:00">2021-11-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<h2 id="title-数组"><a href="#title-数组" class="headerlink" title="title:数组"></a>title:数组</h2><h3 id="4-1-数组"><a href="#4-1-数组" class="headerlink" title="4.1  数组"></a>4.1  数组</h3><p>今天又是学习的一天，接下来我们开始看数组，这是一个非常重要的对象，而且是我们除了原始对象以外，经常用到的一个对象，对于整个 Js 的学习非常重要。本次学习主要学习数组的定义，即如何创建数组，几种轮询数组的方法，还有就是一些数组常用的函数。</p>
+<h4 id="4-11-创建数组"><a href="#4-11-创建数组" class="headerlink" title="4.11 创建数组"></a>4.11 创建数组</h4><p>首先，我们学习的是怎么创建一个数组并把它初始化，这就好比如我们在建房子的时候，得先了解怎么建房，建成什么规格的。底下我们来看代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//做一个数组并且要进行初始化的时候可以这样写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>,<span class="number">2</span>,,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> arr3=[,,,];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr4=[<span class="string">&#x27;aaa&#x27;</span>,<span class="number">0</span>,<span class="literal">undefined</span>,<span class="literal">null</span>,<span class="literal">true</span>,&#123;&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>那么房子建好了接下去是不是就是搬进去住的问题了，这就是我们要如何访问数组元素，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(arr2[<span class="number">4</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>在这边呢，还是要再强调一点，大家一定要把代码在自己的电脑里面重新敲一遍并且运行，这样对一些函数和方法的调用印象都会比较强，更加有助于学习。接下来，我们看下底下这句代码，大家认为是否会报错，先不要在机器里边敲啊，自己根据理解猜测下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">3</span>]=<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>很多人看到我这样问，就感觉说这边有坑了，猜测应该不会报错，自信点，把应该去掉，这边是没有报错的，运行结果是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> [empty × <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<p>为什么是这样的结果捏，跟我们的理解可能不太一样， arr 明明是空的，但是为什么 arr[3] = 5 ? 也就是说刚开始的数组长度是 0 ，arr[3] 时数组长度是 4 ，在位置 4 的地方赋值 5，而前面的三个仍然是空值，就是会在数组中强制塞进去。</p>
+<p>再来看这样一个示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr2[<span class="number">2</span>]=<span class="number">8</span>;  </span><br><span class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[1, 2, 8, 6]</span></span><br><span class="line"></span><br><span class="line">arr2[<span class="number">0</span>]=<span class="string">&#x27;ab&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[&#x27;ab&#x27;, 2, 8, 6]</span></span><br></pre></td></tr></table></figure>
+
+<p>结合上面两段代码呢，我们可以知道，如果一个下标位置原来不存在，会添加，如果必须的话，还会添加 length ，而如果下标存在的话，就会覆盖掉原来所传进去数组的值。</p>
+<p>使用构造函数方式生成数组，请看示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//等价于 arr = [] ;</span></span><br><span class="line">arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">6</span>);<span class="comment">//等价于 arr = [1,2,8,6] ;</span></span><br><span class="line">arr3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">4</span>);<span class="comment">/*为什么不是 arr = [4]; 其实相当等价于 arr = []；</span></span><br><span class="line"><span class="comment">这个需要记忆下来</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>这块知识点我们后面会深入学习，所以这边知识先带大家了解下，就不展开来讲解了。有的同学在问，说可不可以在一个数组里边插入另外的数，首先我们不知道要插入的这个位置原先是否有其他值的存在，这就涉及到了稀疏数组，所谓的稀疏，顾名思义就是，某些数组的内存不是连续的，存在一些空隙。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> larr = <span class="built_in">Array</span>(<span class="number">10000</span>);</span><br><span class="line"><span class="comment">//(10000) [empty × 10000]    length: 10000</span></span><br><span class="line"></span><br><span class="line">larr[<span class="number">3</span>] = <span class="number">8</span> ;  </span><br><span class="line"><span class="comment">//(10000) [empty × 3, 8, empty × 9996]</span></span><br></pre></td></tr></table></figure>
+
+<p>再来看个意想不到的东西，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">larr[<span class="number">1.5</span>]=<span class="number">7</span>;</span><br><span class="line"><span class="comment">// [empty × 3, 8, empty × 9996, 1.5: 7]   3: 81.5: 7  length: 10000</span></span><br></pre></td></tr></table></figure>
+
+<p>数组里面还可以写小数？？？结果是肯定的，可以把数组当作 map 来用，一个 Map对象在迭代时会根据对象中元素的插入顺序来进行 一个 for…of 循环在每次迭代后会返回一个形式为[key，value]的数组。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a4=[];</span><br><span class="line">a4[<span class="string">&#x27;China&#x27;</span>]=<span class="string">&#x27;满汉全席&#x27;</span>;</span><br><span class="line">a4[<span class="string">&#x27;American&#x27;</span>]=<span class="string">&#x27;火鸡&#x27;</span>;</span><br><span class="line">a4[<span class="string">&#x27;France&#x27;</span>]=<span class="string">&#x27;牛排&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a4);</span><br></pre></td></tr></table></figure>
+
+<p>那我们要如何去判断一个变量是否是数组呢，请看示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(arr));<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.constructor.name == <span class="string">&#x27;Array&#x27;</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>介绍下轮询数组的方法：</p>
+<p>接下来我们相继学习三种轮询数组的方法，首先先学习前面两种，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="comment">//for(i)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//for(in)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述两段代码的运行结果为下图所示：</p>
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111172202353.PNG"></p>
+<p>那么，思考一下，这两者之间的区别是什么呢？可以说，for(i) 的方法适用于数组里面所包含的元素全部都是一个一个，清清楚楚地写出来那种，而相反，for(in) 就用到了 map 。我们看个示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,,,<span class="number">4</span>];</span><br><span class="line"><span class="comment">//for(i)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//0</span></span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//2 undefined</span></span><br><span class="line"><span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,,,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//0</span></span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<p>相信看完这两个代码大家就可以深入理解，说的通透点就是，for(i) 方法可以透过表面读取深度数据，按照数组的方式改变数组，而 for(in) 就只能读取表面看到的数据，使用 map 的方式返回所有非稀疏节点的 key。</p>
+<p>这边涉及下第三种轮询数组的方法，forEach(f) ：返回所有数字且非稀疏的节点的 value ，示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>))</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种呢，我们下节会具体学，在这边就先简单带过。</p>
+<h4 id="4-12-for-in"><a href="#4-12-for-in" class="headerlink" title="4.12  for in"></a>4.12  for in</h4><p>循环、轮询怎么去访问它。</p>
+<h4 id="4-13-concat"><a href="#4-13-concat" class="headerlink" title="4.13  concat()"></a>4.13  concat()</h4><p> concat() 函数用于把两个数组连接起来，合并成为一个数组，该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。这个点是相对好理解的，在本例中，我们创建数组并把它们连接起来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3=arr.concat(arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr3);<span class="comment">// [3, 2, 1, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-14-join"><a href="#4-14-join" class="headerlink" title="4.14  join()"></a>4.14  join()</h4><p>把数组的里边的元素全部打开，组成一个字符串，元素通过指定的分隔符进行分割。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr3.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//3,2,1,4,5,6</span></span><br><span class="line"><span class="built_in">console</span>.log(arr3.join(<span class="string">&#x27;-&#x27;</span>));<span class="comment">//3-2-1-4-5-6</span></span><br><span class="line"><span class="built_in">console</span>.log(arr3.join(<span class="string">&#x27;    &#x27;</span>));<span class="comment">//3    2    1    4    5    6</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-15-sort"><a href="#4-15-sort" class="headerlink" title="4.15  sort()"></a>4.15  sort()</h4><p>对数组里边的值进行排序，并且返回数组。例：创建一个数组，实现排序并且返回功能，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr3=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr3.sort());<span class="comment">//[0, 1, 2, 3, 4, 5, 8, 9]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-数据结构"><a href="#4-2-数据结构" class="headerlink" title="4.2   数据结构"></a>4.2   数据结构</h3><h4 id="4-21-栈"><a href="#4-21-栈" class="headerlink" title="4.21  栈"></a>4.21  栈</h4><p>栈相当于一个桶，原则上是后进先出，进栈 ：push ,出栈 ：pop 。</p>
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111192121826.PNG"></p>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//push-pop  尾进尾出</span></span><br><span class="line"><span class="keyword">var</span> arr=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>)); <span class="comment">//a,b,c</span></span><br><span class="line">arr.push(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//a,b,c,z</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.pop());<span class="comment">//z</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//a,b,c</span></span><br></pre></td></tr></table></figure>
+
+<p>数组中还有一个有意思的地方， unshift-shift 。shift() 方法用于把数组的第一个元素从其中删除,并返回第一个元素的值，而 unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度，示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*shift 是把东西拿走移动，而 unshift 是把东西放进栈里面     unshift-shift  头进头出*/</span></span><br><span class="line"><span class="keyword">var</span> arr=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>)); <span class="comment">//a,b,c</span></span><br><span class="line">arr.unshift(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//z,a,b,c</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.shift());<span class="comment">//z</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//a,b,c</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-22-队列"><a href="#4-22-队列" class="headerlink" title="4.22  队列"></a>4.22  队列</h4><p>队列，采用的原则是先进先出，就好比如我们排队买东西，先排队的先付款走人，如果这时候是先来的最后买单，整个秩序就会完全乱掉。</p>
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111212138521.PNG"></p>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>)); <span class="comment">//a,b,c</span></span><br><span class="line">arr.push(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//a,b,c,z</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.shift());<span class="comment">//a(头进头出)</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;,&#x27;</span>));<span class="comment">//b,c,z</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-数组中的成员函数"><a href="#4-3-数组中的成员函数" class="headerlink" title="4.3  数组中的成员函数"></a>4.3  数组中的成员函数</h3><h4 id="4-31-slice-函数"><a href="#4-31-slice-函数" class="headerlink" title="4.31  slice() 函数"></a>4.31  slice() 函数</h4><p>slice() 函数是一个数组的函数，主要是节选数组中的一段，原数组是不受影响的。在本例中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//slice(iStart[,iEnd]) </span></span><br><span class="line"><span class="comment">//slice(iStart,iEnd)</span></span><br><span class="line"><span class="comment">//slice(iStart)</span></span><br></pre></td></tr></table></figure>
+
+<p>上面主要是 slice() 函数的写法，大家注意下， [] 里面的数可有可不有，不会产生影响。用法示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr7=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">6</span>));<span class="comment">//从第六开始    6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">3</span>));<span class="comment">//后三个   6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">2</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">7</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这边呢，要注意下，正着数的时候是从 0 开始数的，而倒着数的时候是从 1 开始数的，这是所有程序员从今往后要习惯的事情。</p>
+<h4 id="4-32-splice-函数"><a href="#4-32-splice-函数" class="headerlink" title="4.32  splice() 函数"></a>4.32  splice() 函数</h4><p>splice 主要用来对 js 中的数组进行操作，包括删除，添加，替换等，与 slice 函数不同的是 splice() 函数操作完原数组会受到影响。splice(iIndex[, iHowmany][,item1]),从 iIndex 开始，删除元素，删除几个由 iHowmany 决定, item1 是要插入的元素。示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> arr1=arr.splice(<span class="number">6</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1,5,6,7,8，这边相当于从下标为 2 的位置开始，删除 3 个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4，返回删除掉的三个元素</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,5,6,7,8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">3</span>,-<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,-1,-2,-3,-4,5,6,7,8；在删除掉的地方插入后面四个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br></pre></td></tr></table></figure>
+
+<p>要开始6.11</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/11/03-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">title:数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">4.1  数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-11-%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">4.11 创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-12-for-in"><span class="nav-number">1.1.2.</span> <span class="nav-text">4.12  for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-13-concat"><span class="nav-number">1.1.3.</span> <span class="nav-text">4.13  concat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-14-join"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.14  join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-15-sort"><span class="nav-number">1.1.5.</span> <span class="nav-text">4.15  sort()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">4.2   数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-21-%E6%A0%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">4.21  栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-22-%E9%98%9F%E5%88%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">4.22  队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">4.3  数组中的成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-31-slice-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.31  slice() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-32-splice-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.32  splice() 函数</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">唯初</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯初</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
