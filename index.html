@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
@@ -110,12 +110,32 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar fa-fw"></i>日程表</a>
 
   </li>
   </ul>
@@ -141,6 +161,479 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/10/07-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%20&%20%E9%97%AD%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/10/07-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%20&%20%E9%97%AD%E5%8C%85/" class="post-title-link" itemprop="url">作用域链 & 闭包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-10 19:29:55" itemprop="dateCreated datePublished" datetime="2021-12-10T19:29:55+08:00">2021-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-11 22:30:49" itemprop="dateModified" datetime="2021-12-11T22:30:49+08:00">2021-12-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="7-1-作用域链"><a href="#7-1-作用域链" class="headerlink" title="7.1  作用域链"></a>7.1  作用域链</h3><p>作用域产生于程序源代码中定义变量的区域，在程序编码阶段就确定了。javascript 中分为全局作用域(Global context： window / global)和局部作用域（Local Scope , 又称为函数作用域 Function context）。简单讲作用域就是当前函数的生成环境或者上下文，包含了当前函数内定义的变量以及对外层作用域的引用。JS 中作用域是可访问变量、对象、函数的集合。</p>
+<h4 id="7-11作用域"><a href="#7-11作用域" class="headerlink" title="7.11作用域"></a>7.11作用域</h4><h5 id="函数作用域-scope"><a href="#函数作用域-scope" class="headerlink" title="函数作用域[[scope]]"></a>函数作用域[[scope]]</h5><ul>
+<li><p>外部对内部可见</p>
+<p>  意思简单点就是 函数里面的变量可以调用函数外面的值，看个例子：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;g&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>  而如果我们把 第四行语句去掉，结果就不一样了，结果值分别是 g , g 。这就是所谓的外部对内部不可见。</p>
+</li>
+<li><p>内部对外部不可见</p>
+<p>  示例：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"><span class="built_in">console</span>.log(scope);</span><br></pre></td></tr></table></figure>
+
+<p>  运行结果是报错的，因为没有找到 scope 这个变量。</p>
+</li>
+<li><p>内部优先</p>
+</li>
+</ul>
+<p>这里声明一下，在 c 和 c++ 里面，控制作用域的一般叫做块，块就是用一个大括号括起来的，大括号里面作用域存在，大括号没有，作用域消失。而JS 中只有函数级别的作用域，没有块级别的作用域；换句话来说，只有在进入或者退出函数的时候，作用域会发生变化。</p>
+<p>js 的作用域都是函数级别的，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;g&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;l&#x27;</span>;<span class="comment">//替换掉 g</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//l</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//l</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="7-12-执行环境和作用域链"><a href="#7-12-执行环境和作用域链" class="headerlink" title="7.12  执行环境和作用域链"></a>7.12  执行环境和作用域链</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><p>执行环境(execution context)，定义了执行期间可以访问的变量和函数。</p>
+<p>知识点：</p>
+<ul>
+<li>作用域[[scope]] ，每个函数都有；</li>
+<li>作用域是私有属性，只能由 JS 引擎访问；</li>
+<li>作用域链，是 AO 和 GO 构成的链</li>
+<li>所谓的执行环境，就是根据作用域链依次查找变量和函数：<ul>
+<li>找到即停</li>
+<li>全部找完无果，报错。</li>
+</ul>
+</li>
+<li>作用域链每个函数都要</li>
+</ul>
+<h5 id="生成作用域链"><a href="#生成作用域链" class="headerlink" title="生成作用域链"></a>生成作用域链</h5><ol>
+<li>每个函数在定义（函数声明\函数表达式）时会拷贝其父亲函数的作用域链；</li>
+<li>在函数被调用时，生成 AO 然后将 AO 压入作用域链的栈顶。</li>
+</ol>
+<h5 id="全局执行环境"><a href="#全局执行环境" class="headerlink" title="全局执行环境"></a>全局执行环境</h5><ul>
+<li>Global Object(window)</li>
+<li>从见到 JS 代码开始创建</li>
+<li>到网页关闭时销毁</li>
+</ul>
+<h5 id="函数执行环境"><a href="#函数执行环境" class="headerlink" title="函数执行环境"></a>函数执行环境</h5><ul>
+<li>Activation Object</li>
+<li>从函数调用开始创建</li>
+<li>到函数调用结束时销毁</li>
+</ul>
+<h3 id="7-2-闭包"><a href="#7-2-闭包" class="headerlink" title="7.2  闭包"></a>7.2  闭包</h3><h4 id="7-21-闭包原理"><a href="#7-21-闭包原理" class="headerlink" title="7.21  闭包原理"></a>7.21  闭包原理</h4><h4 id="7-22-应用"><a href="#7-22-应用" class="headerlink" title="7.22  应用"></a>7.22  应用</h4><h3 id="7-3-立即执行函数"><a href="#7-3-立即执行函数" class="headerlink" title="7.3  立即执行函数"></a>7.3  立即执行函数</h3><p>9.4</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/06-%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/29/06-%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-29 20:46:53" itemprop="dateCreated datePublished" datetime="2021-11-29T20:46:53+08:00">2021-11-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-10 19:28:57" itemprop="dateModified" datetime="2021-12-10T19:28:57+08:00">2021-12-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="6-1-对象"><a href="#6-1-对象" class="headerlink" title="6.1  对象"></a>6.1  对象</h3><h4 id="6-11-对象创建"><a href="#6-11-对象创建" class="headerlink" title="6.11  对象创建"></a>6.11  对象创建</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象</span></span><br><span class="line"><span class="comment">//对象的创建</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1=[];</span><br><span class="line"><span class="keyword">var</span> obj2=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//两个方法都可以</span></span><br><span class="line"><span class="comment">/*注意：与 function 不同的是，对象的变量要用逗号间隔开，最后一个变量后面不用加符号*/</span></span><br><span class="line"><span class="keyword">var</span> objBook = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;Book Name&#x27;</span>,<span class="comment">//原始成员</span></span><br><span class="line">	<span class="attr">pageNumber</span>:<span class="number">300</span>,</span><br><span class="line">	<span class="attr">author</span>:&#123;<span class="comment">//引用成员</span></span><br><span class="line">		<span class="attr">firstname</span>:<span class="string">&#x27;aaa&#x27;</span>,</span><br><span class="line">		<span class="attr">lastname</span>:<span class="string">&#x27;bbb&#x27;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">query</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//成员函数</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;query&#x27;</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">addPage</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.pageNumber++;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;addPage&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(++objBook.pageNumber);<span class="comment">//301</span></span><br><span class="line">objBook.query();<span class="comment">//query</span></span><br><span class="line">objBook[<span class="string">&#x27;query&#x27;</span>]();<span class="comment">//query</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-12-对象属性"><a href="#6-12-对象属性" class="headerlink" title="6.12  对象属性"></a>6.12  对象属性</h4><p>在 js 中，对象要怎么增加属性呢，有以下这几种方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.a=<span class="string">&#x27;aaa&#x27;</span>;</span><br><span class="line">obj[<span class="string">&#x27;b&#x27;</span>]=<span class="string">&#x27;bbb&#x27;</span>;<span class="comment">//等价于 obj.b=&#x27;bbb&#x27;;</span></span><br></pre></td></tr></table></figure>
+
+<p>object 增加属性不需要声明，直接使用就可以，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.f1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;fff......&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建了对象属性之后，想要删除修改要怎么做呢？删除属性，首先是先查询一个属性是否存在。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.in</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> obj));<span class="comment">//true</span></span><br><span class="line"><span class="comment">//2.hasOwnProperty()</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>当结果为 true 时，表示系统查询到了该属性，接下去就是删除，删除一般就一个方法，delete ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//delete</span></span><br><span class="line"><span class="keyword">delete</span> obj.a;</span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> obj));<span class="comment">//false，表示已经删除</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//false</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+
+<p>这是属性的删除方法。</p>
+<p>那改的话怎么改呢，修改属性其实很简单的，直接上手改动就行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.a=<span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，a 已经被改掉了值。然后呢，有一个东西叫做枚举，看到这，是不是大家就会感觉到其实 object 跟数组极其相似。枚举是什么呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(p);<span class="comment">//1 a f1</span></span><br><span class="line">&#125;</span><br><span class="line">obj.toString();<span class="comment">//1 a f1</span></span><br></pre></td></tr></table></figure>
+
+<p>我们调用 toString 的时候，结果也是跟 for 循环的结果一样，所以说，toString  并不是直接挂在 obj 上面的，它是挂在它底下的原形上的，这是一种类似继承的方法。 javascript 所面对的环境并不是很复杂的环境，主要是脚本前端的渲染，交互和一些游戏这些方面的语言，给人一眼看过去就会的语言。能够枚举的东西都是它自己的，不能枚举的都是它从别人那继承过来的，而且这种继承关系更像是一种委托。就类似于设计界找枪手的例子，为了自己的某种目的，把别人的东西变成自己的。怎么检测一个东西是否可以枚举呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(obj.propertyIsEnumerable(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.propertyIsEnumerable(<span class="string">&#x27;toString()&#x27;</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-13-自定义构造函数"><a href="#6-13-自定义构造函数" class="headerlink" title="6.13  自定义构造函数"></a>6.13  自定义构造函数</h4><p>我们现在的对象都是从 object 里面生成出来的，在上面加上我们想要添加的东西，那我们是不是每做一个对象，都要重复这样操作呢，其实不是的，有一个东西叫做构造函数。返回对象创建那块，如果我们需要两个对象的情况下，怎么做，直接 copy ？当然是 no 了，这样修改其中一个对象的话也会麻烦，更加不符合我们之前说的同样的事情要用同样的过程把它分装起来，类似的步骤，我们可以把它分装在固定的位置，好处就是以后在不同的地方调用，改一个函数即可。</p>
+<p>所以，我们需要一种函数能够每次以相同的方式构造对象，同时，在改动这个函数所有的对象都能跟着改变，这就需要一个构造函数，说的通俗点就是 class 。构造函数名称以大写字母开头，这只是约定俗成，并不是语言要求。举例说下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age,gender</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name=name;</span><br><span class="line">	<span class="built_in">this</span>.age=age;</span><br><span class="line">	<span class="built_in">this</span>.gender=gender;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> std=<span class="keyword">new</span> Student(<span class="string">&#x27;WangLin&#x27;</span>,<span class="number">30</span>,<span class="string">&#x27;male&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这边呢，有三种命名规则：</p>
+<ul>
+<li><p>匈牙利命名规则：属性 + 类型 + 对象描述</p>
+<p>  属性：成员变量 m_   静态成员 s_      普通 &lt;没有&gt;</p>
+<p>  类型：整形 i ，数组 a ，字符串 str </p>
+<p>  对象描述：单词 + 单词。。。。，首字母大写</p>
+</li>
+<li><p>小驼峰命名规则：对象描述</p>
+<p>  第一个单词的首字母小写，其他单词的首字母大写</p>
+</li>
+<li><p>大驼峰命名规则：对象描述</p>
+<p>  第一个单词的首字母大写，其他单词的首字母大写</p>
+<p>  命名是很重要的，体现了我们代码人的素养。越后来，可能越来越少的人会使用匈牙利命名规则，特别是 window 不是特别热的情况下，所以，小驼峰和大驼峰会成为大多数人的趋向。我们会发现构造函数使用的是大驼峰命名规则，而 object 对象的成员函数使用的是小驼峰命名规则。</p>
+</li>
+</ul>
+<h4 id="6-14-包装类"><a href="#6-14-包装类" class="headerlink" title="6.14  包装类"></a>6.14  包装类</h4><ul>
+<li><p>Number()  vs  number</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n1=<span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> n2=<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);<span class="comment">//构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));<span class="comment">//object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n3=n1+n2;</span><br><span class="line"><span class="built_in">console</span>.log(n3);<span class="comment">//246</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>String()  vs  string</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1=<span class="string">&#x27;aaa&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> s2=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&#x27;aaa&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(s1));<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(s2));<span class="comment">//object</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>Boolean()  vs  boolean</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b1=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> b2=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b1));<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b2));<span class="comment">//object</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>包装类的隐式调用</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.length=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">&#x27;1234&#x27;</span>;</span><br><span class="line"><span class="comment">//str.length=2;</span></span><br><span class="line"><span class="keyword">var</span> strTmp=<span class="keyword">new</span> <span class="built_in">String</span>(str);</span><br><span class="line">strTmp.length=<span class="number">2</span>;</span><br><span class="line"><span class="comment">//strTmp 摧毁</span></span><br><span class="line"><span class="built_in">console</span>.log(str);<span class="comment">//1234</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iNum=<span class="number">123</span>;</span><br><span class="line"><span class="comment">//iNum.toString();</span></span><br><span class="line"><span class="keyword">var</span> iTmp=<span class="keyword">new</span> <span class="built_in">Number</span>(iNum);</span><br><span class="line">iTmp.toString();</span><br><span class="line"><span class="comment">//iTmp 摧毁</span></span><br><span class="line"><span class="built_in">console</span>.log(iNum);<span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="6-2-预编译"><a href="#6-2-预编译" class="headerlink" title="6.2  预编译"></a>6.2  预编译</h3><p>JavaScript 引擎的三大步骤：</p>
+<ul>
+<li><p>预编译（第一次\前置扫描）</p>
+<p>  脚本：</p>
+<ul>
+<li><p>创建全局对象 GO(window) （上下文）</p>
+</li>
+<li><p>加载脚本文件</p>
+</li>
+<li><p>预编译</p>
+<ul>
+<li>找出所有的变量声明，按照变量名加入全局对象，如果已经存在，忽略。</li>
+<li>找出所有的函数声明，按照函数名加入全局对象，如果已经存在同名变量或者函数，替换。</li>
+<li>非声明不予理睬</li>
+</ul>
+</li>
+<li><p>解释执行</p>
+</li>
+</ul>
+</li>
+<li><p>解释执行（第二次扫描）</p>
+</li>
+</ul>
+<h4 id="6-21-预编译——脚本"><a href="#6-21-预编译——脚本" class="headerlink" title="6.21  预编译——脚本"></a>6.21  预编译——脚本</h4><p>编译呢，是指把代码变成块结构的语言，就是机器码，然后把编好的块链接起来，组装成 .exe 或者是 .dl 的过程叫做链接。预编译其实是编译里最早的东西。在 c++ 里面，我们拿到一个函数都是先把它声明，再去实现，那么，预编译是把所有的声明都扫描出来，扫描到一个名字表里面去，然后知道这个东西以后，在编译时才能知道是否有这么一个东西。</p>
+<p>没有 var 的变量（都不是变量声明），全部认为是 window 的全局变量，不参与预编译。举个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>这个结果是毫无疑问的，那么，我们再来看个，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line">aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line"><span class="comment">//Uncaught ReferenceError: aa is not defined</span></span><br><span class="line">    at ds7-<span class="number">5.</span>js:<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>结果是会报错，那如果按照预编译的理解，改成这样子呢，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//undefied</span></span><br><span class="line"><span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么会这样子？很简单，就是我们上面说的，这是段脚本语言，拿到这个脚本，先是创建全局对象，然后按照流程，找出所有的变量声明，这边只有 aa ,把变量名 aa 加入全局对象，即aa 已经存入 window 中，没有函数声明，就直接继续执行，执行的话，第一行语句，因为 aa 已经存进 window 中，但是没有定义，所以输出的结果是 undefined ，然后第二行语句，将5赋值给 aa ,所以第三行语句输出5。</p>
+<p>即使在函数中，aa 也是全局变量，是在运行时，而不是定义时。举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	a=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+<p>大家根据预编译的步骤想想，这样会不会报错，会的，因为 test() 函数并没有被纳入 window 中，想让程序不报错的话，我们要先定义函数，让它首先被 window 存入，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	a=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>这样子结果就是正确的。</p>
+<p>在脚本中，所有变量声明在脚本的预编译阶段完成，所有变量的声明与实际的书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line"><span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);</span><br></pre></td></tr></table></figure>
+
+<p>脚本中，所有函数声明在脚本的与编译阶段完成，所有函数的声明与实际书写位置无关。例如，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line"><span class="comment">//ƒ haha()&#123;</span></span><br><span class="line"><span class="comment">//	console.log(&#x27;h1&#x27;);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>脚本中，如果变量与函数同名，那么，函数将覆盖变量。举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line"><span class="comment">//ƒ haha()&#123;</span></span><br><span class="line"><span class="comment">//	console.log(&#x27;h1&#x27;);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，函数就将变量给覆盖掉，不然的话，运行结果应该在本结果的前面加一个 undefined 。</p>
+<p>脚本中，只有函数能够覆盖变量，变量无法覆盖函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">var</span> haha=<span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<p>脚本中，后面的函数声明会覆盖前面的函数声明，并且会忽略参数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">haha(<span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;haha1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;haha2&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-22-预编译——函数调用"><a href="#6-22-预编译——函数调用" class="headerlink" title="6.22  预编译——函数调用"></a>6.22  预编译——函数调用</h4><p>函数调用：</p>
+<ul>
+<li><p>创建活动对象 AO(Active Object)</p>
+</li>
+<li><p>预编译：</p>
+<ul>
+<li>scope chain</li>
+<li>初始化 arguments</li>
+<li>初始化形参，将 arguments 中的值赋给形参</li>
+<li>找出所有的变量声明，按照变量名加入 AO ，如果已经存在，忽略。</li>
+<li>找出所有的函数声明，按照函数名加入 AO ，如果已经存在同名变量或者函数，替换。</li>
+<li>this 初始化</li>
+</ul>
+</li>
+<li><p>解释执行</p>
+</li>
+</ul>
+<p>函数中，所有变量声明，在函数的预编译阶段完成，所有变量的声明与实际书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(aa);</span><br><span class="line">	<span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(aa);</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，所有函数声明在函数的预编译段完成，所有函数的声明与实际书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，如果变量与函数同名，那么，函数将覆盖变量。举例，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	<span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，只有函数能够覆盖变量，变量无法覆盖函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，后面的函数声明会覆盖前面的函数声明，并且会忽略参数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">&#x27;haha1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">&#x27;haha2&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>当函数预编译后，遇到需要访问的变量或者函数，优先考虑自己 AO 中定义的变量和函数，如果找不到才会在其定义的上一层 AO 中寻找<br>，如果再找不到才会在其定义的上一层 AO 中寻找，直到到达 GO 。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;local&#x27;</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//local</span></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//global</span></span><br></pre></td></tr></table></figure>
+
+<p>首先是脚本的预编译，变量 scope , t 已经放入 window 中， 大致思路如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GO:</span><br><span class="line">scope:<span class="literal">undefined</span> -&gt;<span class="string">&#x27;global&#x27;</span></span><br><span class="line"><span class="attr">t</span>:<span class="function"><span class="keyword">function</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">t</span>-<span class="title">AO</span>://函数执行退出的时候， <span class="title">t</span>-<span class="title">AO</span> 被摧毁</span></span><br><span class="line"><span class="function"><span class="title">scope</span>:<span class="title">undefined</span> -&gt;&#x27;<span class="title">local</span>&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>看个前端工程师的面试题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;t-local&#x27;</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">t2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line">		<span class="keyword">var</span> scope=<span class="string">&#x27;t2-local&#x27;</span>;</span><br><span class="line">		<span class="built_in">console</span>.log(scope);<span class="comment">//t2-local</span></span><br><span class="line">	&#125;</span><br><span class="line">	t2();</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//t-local</span></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//global</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>遵循函数调用的原则，大致思路如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//GO:</span></span><br><span class="line"><span class="comment">//scope:undefined</span></span><br><span class="line"><span class="comment">//t:function//预编译结束</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////运行</span></span><br><span class="line"><span class="comment">//GO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;global</span></span><br><span class="line"><span class="comment">//t:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////预编译</span></span><br><span class="line"><span class="comment">//t-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined </span></span><br><span class="line"><span class="comment">//t2:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////运行</span></span><br><span class="line"><span class="comment">//t-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;&#x27;t-local&#x27;</span></span><br><span class="line"><span class="comment">//t2:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//t2-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;&#x27;t2-local&#x27;//被摧毁</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/05-%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/24/05-%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-24 22:37:31" itemprop="dateCreated datePublished" datetime="2021-11-24T22:37:31+08:00">2021-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-29 20:38:34" itemprop="dateModified" datetime="2021-11-29T20:38:34+08:00">2021-11-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这章呢学习的概念性的东西会比较多，但是逻辑的东西并不多。</p>
+<h3 id="5-1-函数定义"><a href="#5-1-函数定义" class="headerlink" title="5.1  函数定义"></a>5.1  函数定义</h3><p>函数的定义是什么，简单点来说就是起到分装的作用。何为分装？假设我们家里没有衣柜、鞋柜等东西，所有的东西都是堆在一起的，包括衣服、鞋子、被子啊等等，是不是就会显得杂乱无章，这就需要一个分装。什么是分装呢，就是拿一个盒子，把东西分类包装好，下次需要用的时候，直接到盒子里面寻找，这样目的性就比较强了，这就是分装的性质。那么函数分装是什么，函数分装的是过程，也就是说把一个操作过程分装起来，这样就比较好找、好用，这是第一步；第二步呢，函数也可以反过去调用。</p>
+<h4 id="5-11-函数声明"><a href="#5-11-函数声明" class="headerlink" title="5.11  函数声明"></a>5.11  函数声明</h4><p>函数声明，是一种独立的结构，它会声明一个具名函数，并必须以function开头。且函数声明会进行函数提升，使它能在其所在作用域的任意位置被调用，即后面的代码可以将此函数通过函数名赋值给变量或者对象属性。结构如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数的声明</span></span><br><span class="line"><span class="comment">function &lt;函数名&gt;([&lt;形参,可有一个或多个&gt;])&#123;</span></span><br><span class="line"><span class="comment">	函数体</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">函数可以有形参，也可以没有；可以有返回，也可以没有，没有的话，返回 undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>例如，以下的代码定义了一个函数名为  reverseNumber 的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//12345返回变成 54321  ，用函数实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseNumber</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> num != <span class="string">&#x27;number&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="built_in">isFinite</span>(num) || <span class="built_in">isNaN</span>(num))&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> +num.toString().split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(reverseNumber(<span class="number">12345</span>));<span class="comment">//54321</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-12-函数表达式（命名、匿名）"><a href="#5-12-函数表达式（命名、匿名）" class="headerlink" title="5.12  函数表达式（命名、匿名）"></a>5.12  函数表达式（命名、匿名）</h4><p>虽然上面的函数声明在语法上是一个语句，但函数也可以由函数表达式创建。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数表达式  </span></span><br><span class="line"> (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"> <span class="keyword">var</span> f=<span class="function"><span class="keyword">function</span> <span class="title">ff</span>(<span class="params"></span>)</span>&#123;&#125;; </span><br><span class="line"> ff(a,fuction <span class="function"><span class="title">fff</span>(<span class="params"></span>)</span>&#123;&#125;,b);</span><br></pre></td></tr></table></figure>
+
+<p>函数声明和函数表达式最大的区别是：函数声明的函数名在系统里面可以找到名字,但是，函数表达式不可以。以下代码定义了一个 fact 函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*fact(x-<span class="number">1</span>);<span class="comment">//阶乘   5!=5*4*3*2*1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">5</span>));<span class="comment">//120</span></span><br></pre></td></tr></table></figure>
+
+<p>我们在浏览器的系统中查找 fact 这个函数名，可以看到，</p>
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111252130997.png"></p>
+<p>所以这也是函数声明和函数表达式的最大区别，那么，在这边，我们也可以这样写，两者实现的效果是一样的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*<span class="built_in">arguments</span>.callee(x-<span class="number">1</span>);<span class="comment">//阶乘   5!=5*4*3*2*1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">5</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个写法大家目前先记住，简而言之，arguments.callee 就是代替表达式的函数名。函数表达式这块呢，大家一定要去理解，因为我们后边学的基本上都是用的函数表达式。</p>
+<h4 id="5-13-函数作为参数传递"><a href="#5-13-函数作为参数传递" class="headerlink" title="5.13  函数作为参数传递"></a>5.13  函数作为参数传递</h4><p>函数呢，也可以被当作接力棒，作为参数传递给另外一个函数，实例说明下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数可以作为参数传给另外一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">f</span>)</span>&#123;<span class="comment">//f 是形参</span></span><br><span class="line">	<span class="built_in">console</span>.log(f);</span><br><span class="line">	<span class="built_in">console</span>.log(f());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//f2()是函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f2()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f2 say hello!&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">f1(f2);</span><br><span class="line"></span><br><span class="line"><span class="comment">//f3 是函数表达式</span></span><br><span class="line"><span class="keyword">var</span> f3=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f3()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f3 say hello!&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">f1(f3);</span><br></pre></td></tr></table></figure>
+
+<p>其实很简单，就是在外面包一层另外的函数，然后在这个另外函数里面执行真正的函数。另外， function 是一个引用类型的对象，看例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((f3=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f3()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f3 say hello to &#x27;</span> + x +<span class="string">&#x27;!&#x27;</span>;</span><br><span class="line">&#125;)(<span class="string">&#x27;wanglin&#x27;</span>));</span><br><span class="line"><span class="comment">//I am f3()</span></span><br><span class="line"><span class="comment">// f3 say hello to wanglin!</span></span><br></pre></td></tr></table></figure>
+
+<p>底下我们来看两个值互相交换，要怎么写呢？详解请看下例，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> y=<span class="number">6</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=a;</span><br><span class="line">	a=b;</span><br><span class="line">	b=c;</span><br><span class="line">&#125;</span><br><span class="line">exchange(x,y);</span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">&#x27; &#x27;</span> + y);<span class="comment">//5 6</span></span><br></pre></td></tr></table></figure>
+
+<p>诶？怎么回事，没有发生交换啊，别慌，再来，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> y=[<span class="number">6</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=a[<span class="number">0</span>];</span><br><span class="line">	a[<span class="number">0</span>]=b[<span class="number">0</span>];</span><br><span class="line">	b[<span class="number">0</span>]=c;</span><br><span class="line">&#125;</span><br><span class="line">exchange(x,y);</span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">&#x27; &#x27;</span> + y);<span class="comment">//6 5</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么 x,y 的类型换成数组，就可以交换数值了呢？这就是我们为什么要试图去理解引用和值，值在函数里边是换不过来的，但是，如果是引用的话是可以的，因为引用操作的是真实的堆里面的东西。</p>
+<h4 id="5-14-嵌套函数"><a href="#5-14-嵌套函数" class="headerlink" title="5.14  嵌套函数"></a>5.14  嵌套函数</h4><p>在 JavaScript 中，函数可以嵌套在另一个函数中进行定义，有点类似 Java 中的内部类，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hypotenuse</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//function square(x)&#123;</span></span><br><span class="line">	<span class="comment">//	return x*x;</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line">	<span class="keyword">var</span> square=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(square(a)+square(b));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hypotenuse(<span class="number">3</span>,<span class="number">4</span>));<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码片段中，函数 hypotenuse 中嵌套定义了函数 square 。这时，函数square只能在distance中被调用。如果我们想要在distance之外调用square函数，由于JavaScript中函数执行环境和变量作用域的限制，我们将得到一个很不友好的错误提示！所以，嵌套函数在未来我们讲闭包的时候带来很多很多的问题。</p>
+<h3 id="5-2-函数的调用"><a href="#5-2-函数的调用" class="headerlink" title="5.2  函数的调用"></a>5.2  函数的调用</h3><h4 id="5-21-函数调用"><a href="#5-21-函数调用" class="headerlink" title="5.21  函数调用"></a>5.21  函数调用</h4><p>JavaScript 中函数有4种调用方式，每种方式的不同在于 this 的初始化。一般而言，在 JavaScript 中， this 指向函数执行的当前对象。</p>
+<p>作为一个函数调用，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line">myFunction(<span class="number">10</span>, <span class="number">2</span>);           <span class="comment">// myFunction(10, 2) 返回 20</span></span><br></pre></td></tr></table></figure>
+
+<p>作为方法调用，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.add=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>作为构造函数调用，构造函数调用这个的话，后面章节会继续深入讲解，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.构造函数</span></span><br><span class="line"><span class="keyword">var</span> arr=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure>
+
+<p>间接调用   间接调用和直接调用唯一的区别是可以绑定 this 指针。如果不考虑 this ，下面这三种写法完全一样的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hypotenuse</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(a*a+b*b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">this</span>.hypotenuse(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">hypotenuse.call(<span class="built_in">this</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">hypotenuse.apply(<span class="built_in">this</span>,[<span class="number">3</span>,<span class="number">4</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111262146175.png"></p>
+<h4 id="5-22-形参和实参"><a href="#5-22-形参和实参" class="headerlink" title="5.22  形参和实参"></a>5.22  形参和实参</h4><p>什么是形参，什么又是实参？形参和实参是不一样的，数量、类型都可以不一样，形参和实参会绑定,动态关联。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b,c</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(foo.length);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">arguments</span>[<span class="number">1</span>]=-<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-递归"><a href="#5-3-递归" class="headerlink" title="5.3  递归"></a>5.3  递归</h3><p>递归构造：</p>
+<ul>
+<li>找到已知 f(x-1) 情况下，如何求解 f(x) 的通式；</li>
+<li>找到递归的基石，比如 f(0) 、f(1) 的值；</li>
+</ul>
+<p>递归真正在工业中是很少使用的，一般是适用于学校性的学习。但是，递归的用法还是挺好用的，主要是考虑到栈的问题，当然，如果系统分配的栈大一点的话，整个递归问题就会进一步得到改善。我们来看个递归的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归的例子</span></span><br><span class="line"><span class="comment">//有一行台阶，阶数是 n 。一次走一步，两步，三步，对于阶数为 n 的一共有多少种走法？</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(n)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">		    <span class="keyword">return</span> (step(n-<span class="number">3</span>)+step(n-<span class="number">2</span>)+step(n-<span class="number">1</span>));</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(step(<span class="number">5</span>));<span class="comment">//13</span></span><br><span class="line"><span class="comment">//step(1):1</span></span><br><span class="line"><span class="comment">//step(2):2</span></span><br><span class="line"><span class="comment">//step(3):1+step(2)+step(1)=4</span></span><br><span class="line"><span class="comment">//step(4):step(1)+step(2)+step(3)=7</span></span><br><span class="line"><span class="comment">//step(n)=step(n-3)+step(n-2)+step(n-1)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -176,7 +669,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 20:22:02" itemprop="dateModified" datetime="2021-11-23T20:22:02+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-24 22:37:08" itemprop="dateModified" datetime="2021-11-24T22:37:08+08:00">2021-11-24</time>
               </span>
 
           
@@ -268,13 +761,27 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//slice(iStart[,iEnd]) </span></span><br><span class="line"><span class="comment">//slice(iStart,iEnd)</span></span><br><span class="line"><span class="comment">//slice(iStart)</span></span><br></pre></td></tr></table></figure>
 
 <p>上面主要是 slice() 函数的写法，大家注意下， [] 里面的数可有可不有，不会产生影响。用法示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr7=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">6</span>));<span class="comment">//从第六开始    6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">3</span>));<span class="comment">//后三个   6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">2</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">7</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr7=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">6</span>));<span class="comment">//从第六开始    6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">3</span>));<span class="comment">//后三个   6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">2</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">7</span>,<span class="number">5</span>));<span class="comment">//2，3，4，从 -7 的位置开始，到第五的位置结束</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在这边呢，要注意下，正着数的时候是从 0 开始数的，而倒着数的时候是从 1 开始数的，这是所有程序员从今往后要习惯的事情。</p>
 <h4 id="4-32-splice-函数"><a href="#4-32-splice-函数" class="headerlink" title="4.32  splice() 函数"></a>4.32  splice() 函数</h4><p>splice 主要用来对 js 中的数组进行操作，包括删除，添加，替换等，与 slice 函数不同的是 splice() 函数操作完原数组会受到影响。splice(iIndex[, iHowmany][,item1]),从 iIndex 开始，删除元素，删除几个由 iHowmany 决定, item1 是要插入的元素。示例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> arr1=arr.splice(<span class="number">6</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1,5,6,7,8，这边相当于从下标为 2 的位置开始，删除 3 个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4，返回删除掉的三个元素</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,5,6,7,8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">3</span>,-<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,-1,-2,-3,-4,5,6,7,8；在删除掉的地方插入后面四个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br></pre></td></tr></table></figure>
 
-<p>要开始6.11</p>
+<h4 id="4-33-delete"><a href="#4-33-delete" class="headerlink" title="4.33 delete"></a>4.33 delete</h4><p>在JavaScript中，delete操作符用的比较少，但是还是比较重要的，我们在这块就举个例子说明下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//delete</span></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[delete] &#x27;</span> + arr);<span class="comment">//0,1,2,3,4,5,6,7,8</span></span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[delete] &#x27;</span> + arr + <span class="string">&#x27;=====&#x27;</span> + arr.length);<span class="comment">// 0,1,2,3,,5,6,7,8=====9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-内存问题"><a href="#4-4-内存问题" class="headerlink" title="4.4  内存问题"></a>4.4  内存问题</h3><h4 id="4-41-值类型-vs-引用类型"><a href="#4-41-值类型-vs-引用类型" class="headerlink" title="4.41  值类型 vs 引用类型"></a>4.41  值类型 vs 引用类型</h4><p>回顾下之前学的值类型都有哪些呢？值类型：number , string , Boolean , undefined , null ; 而引用类型有：array , function , object 。这些涉及的是要在栈里分配还是队列分配。</p>
+<p>这边的栈跟之前代码里面规约四则运算式的栈是不一样的，他们相同的点的是都有相同的数据的操作方式，就是后进先出，但是，事实上，之前的栈是 javascript 的对象，是你在写业务代码的时候，提供的一个栈的功能给你，而今天要学的这个栈，是 javascript 引擎在它的代码层运用，javascript 引擎并不是存在于 javascript , 而是 C++  。</p>
+<p>值类型存储在栈里面，引用类型存储在堆里面。因为值类型占用空间小、大小固定，通过按值来访问，属于被频繁使用的数据，而因为引用类型占据空间大、大小不固定。 如果存储在栈中，将会影响程序运行的性能； 引用类型在栈中存储了指针，该指针指向堆中该实体的起始地址。 当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。比如说：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">5</span>;<span class="comment">//key 是变量名 a，value 是 5</span></span><br><span class="line"><span class="keyword">var</span> b=a;</span><br><span class="line"><span class="keyword">var</span> arr=[];<span class="comment">//key 是变量名 arr，value 是[]的地址（引用），现阶段来说，引用就是地址，但是严格来说的话，引用并不能当作是地址</span></span><br><span class="line"><span class="keyword">var</span> arr1=arr;</span><br><span class="line"><span class="keyword">var</span> a=[];</span><br><span class="line"><span class="keyword">var</span> s=<span class="string">&#x27;abc&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个变量 a ，arr 是存在于栈内存里边的，在栈内存里面的如果是值类型的话，就可以一起放进去，但是，如果后面是数组的话，数组放在堆内存里边，然后把它的地址放到栈里边，即 arr 的位置，可以说是，栈内存小，堆内存大。如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a1 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a2 = <span class="string">&#x27;this is string&#x27;</span>;</span><br><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a3 = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的指针存放在栈内存中，指针指向的对象存放在堆内存中</span></span><br><span class="line"><span class="keyword">let</span> b = &#123; <span class="attr">m</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="comment">// 数组的指针存放在栈内存中，指针指向的数组存放在堆内存中</span></span><br><span class="line"><span class="keyword">let</span> c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111242040963"></p>
+<h4 id="4-42-栈-vs-堆"><a href="#4-42-栈-vs-堆" class="headerlink" title="4.42  栈 vs 堆"></a>4.42  栈 vs 堆</h4><p>堆内存中对象，有一个引用计数，就是 GC ，就是用来垃圾收集，通俗点说就是知道什么东西已经不用，而什么东西还要用，内存回收的机制，最早是由 MS COM 实现的。GC 的作用时间，第一是，堆内存达到一定的门槛，第二是，定期。<br>谁的引用数是0，就被摧毁。而栈内存是当代码运行到栈内变量的作用域以外时，变量将被摧毁（就是内存里边删除了），如果变量被摧毁，引用数-1。来看个底下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//循环引用</span></span><br><span class="line"><span class="keyword">var</span> a1=[];</span><br><span class="line"><span class="keyword">var</span> a2=[];</span><br><span class="line"></span><br><span class="line">a1[<span class="number">0</span>]=a2;</span><br><span class="line">a2[<span class="number">0</span>]=a1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//栈内存</span></span><br><span class="line">ST001:a1,HP001<span class="comment">//运行 a1,栈内存存放 a1 和地址，[]存放在堆内存中，计数为1</span></span><br><span class="line"><span class="attr">ST002</span>:a2,HP002<span class="comment">//运行 a2,栈内存存放 a2 和地址，[]存放在堆内存中，计数为1</span></span><br><span class="line"><span class="attr">ST003</span>:</span><br><span class="line">ST004:</span><br><span class="line">ST005:</span><br><span class="line">ST006:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//堆内存</span></span><br><span class="line">HP001:[HP002],(<span class="number">2</span>)<span class="comment">//运行第三个式子，将 a2地址赋给 a1[0],计数 +1，即为2</span></span><br><span class="line"><span class="attr">HP002</span>:[HP001],(<span class="number">2</span>)<span class="comment">//同上解释</span></span><br><span class="line"><span class="attr">HP003</span>:</span><br><span class="line">HP004:</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -864,7 +1371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -898,7 +1405,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">唯初</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -924,7 +1431,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

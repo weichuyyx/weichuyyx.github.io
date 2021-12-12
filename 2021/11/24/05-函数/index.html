@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这章呢学习的概念性的东西会比较多，但是逻辑的东西并不多。 5.1  函数定义函数的定义是什么，简单点来说就是起到分装的作用。何为分装？假设我们家里没有衣柜、鞋柜等东西，所有的东西都是堆在一起的，包括衣服、鞋子、被子啊等等，是不是就会显得杂乱无章，这就需要一个分装。什么是分装呢，就是拿一个盒子，把东西分类包装好，下次需要用的时候，直接到盒子里面寻找，这样目的性就比较强了，这就是分装的性质。那么函数分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数">
+<meta property="og:url" content="http://example.com/2021/11/24/05-%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="唯初 · Blog">
+<meta property="og:description" content="这章呢学习的概念性的东西会比较多，但是逻辑的东西并不多。 5.1  函数定义函数的定义是什么，简单点来说就是起到分装的作用。何为分装？假设我们家里没有衣柜、鞋柜等东西，所有的东西都是堆在一起的，包括衣服、鞋子、被子啊等等，是不是就会显得杂乱无章，这就需要一个分装。什么是分装呢，就是拿一个盒子，把东西分类包装好，下次需要用的时候，直接到盒子里面寻找，这样目的性就比较强了，这就是分装的性质。那么函数分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111252130997.png">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111262146175.png">
+<meta property="article:published_time" content="2021-11-24T14:37:31.593Z">
+<meta property="article:modified_time" content="2021-11-29T12:38:34.740Z">
+<meta property="article:author" content="唯初">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111252130997.png">
+
+<link rel="canonical" href="http://example.com/2021/11/24/05-%E5%87%BD%E6%95%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数 | 唯初 · Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">唯初 · Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/05-%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/05-%E5%87%BD%E6%95%B0.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-24 22:37:31" itemprop="dateCreated datePublished" datetime="2021-11-24T22:37:31+08:00">2021-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-29 20:38:34" itemprop="dateModified" datetime="2021-11-29T20:38:34+08:00">2021-11-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这章呢学习的概念性的东西会比较多，但是逻辑的东西并不多。</p>
+<h3 id="5-1-函数定义"><a href="#5-1-函数定义" class="headerlink" title="5.1  函数定义"></a>5.1  函数定义</h3><p>函数的定义是什么，简单点来说就是起到分装的作用。何为分装？假设我们家里没有衣柜、鞋柜等东西，所有的东西都是堆在一起的，包括衣服、鞋子、被子啊等等，是不是就会显得杂乱无章，这就需要一个分装。什么是分装呢，就是拿一个盒子，把东西分类包装好，下次需要用的时候，直接到盒子里面寻找，这样目的性就比较强了，这就是分装的性质。那么函数分装是什么，函数分装的是过程，也就是说把一个操作过程分装起来，这样就比较好找、好用，这是第一步；第二步呢，函数也可以反过去调用。</p>
+<h4 id="5-11-函数声明"><a href="#5-11-函数声明" class="headerlink" title="5.11  函数声明"></a>5.11  函数声明</h4><p>函数声明，是一种独立的结构，它会声明一个具名函数，并必须以function开头。且函数声明会进行函数提升，使它能在其所在作用域的任意位置被调用，即后面的代码可以将此函数通过函数名赋值给变量或者对象属性。结构如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*函数的声明</span></span><br><span class="line"><span class="comment">function &lt;函数名&gt;([&lt;形参,可有一个或多个&gt;])&#123;</span></span><br><span class="line"><span class="comment">	函数体</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">函数可以有形参，也可以没有；可以有返回，也可以没有，没有的话，返回 undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>例如，以下的代码定义了一个函数名为  reverseNumber 的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//12345返回变成 54321  ，用函数实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseNumber</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> num != <span class="string">&#x27;number&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="built_in">isFinite</span>(num) || <span class="built_in">isNaN</span>(num))&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> +num.toString().split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(reverseNumber(<span class="number">12345</span>));<span class="comment">//54321</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-12-函数表达式（命名、匿名）"><a href="#5-12-函数表达式（命名、匿名）" class="headerlink" title="5.12  函数表达式（命名、匿名）"></a>5.12  函数表达式（命名、匿名）</h4><p>虽然上面的函数声明在语法上是一个语句，但函数也可以由函数表达式创建。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数表达式  </span></span><br><span class="line"> (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"> <span class="keyword">var</span> f=<span class="function"><span class="keyword">function</span> <span class="title">ff</span>(<span class="params"></span>)</span>&#123;&#125;; </span><br><span class="line"> ff(a,fuction <span class="function"><span class="title">fff</span>(<span class="params"></span>)</span>&#123;&#125;,b);</span><br></pre></td></tr></table></figure>
+
+<p>函数声明和函数表达式最大的区别是：函数声明的函数名在系统里面可以找到名字,但是，函数表达式不可以。以下代码定义了一个 fact 函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*fact(x-<span class="number">1</span>);<span class="comment">//阶乘   5!=5*4*3*2*1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">5</span>));<span class="comment">//120</span></span><br></pre></td></tr></table></figure>
+
+<p>我们在浏览器的系统中查找 fact 这个函数名，可以看到，</p>
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111252130997.png"></p>
+<p>所以这也是函数声明和函数表达式的最大区别，那么，在这边，我们也可以这样写，两者实现的效果是一样的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*<span class="built_in">arguments</span>.callee(x-<span class="number">1</span>);<span class="comment">//阶乘   5!=5*4*3*2*1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">5</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个写法大家目前先记住，简而言之，arguments.callee 就是代替表达式的函数名。函数表达式这块呢，大家一定要去理解，因为我们后边学的基本上都是用的函数表达式。</p>
+<h4 id="5-13-函数作为参数传递"><a href="#5-13-函数作为参数传递" class="headerlink" title="5.13  函数作为参数传递"></a>5.13  函数作为参数传递</h4><p>函数呢，也可以被当作接力棒，作为参数传递给另外一个函数，实例说明下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数可以作为参数传给另外一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">f</span>)</span>&#123;<span class="comment">//f 是形参</span></span><br><span class="line">	<span class="built_in">console</span>.log(f);</span><br><span class="line">	<span class="built_in">console</span>.log(f());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//f2()是函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f2()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f2 say hello!&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">f1(f2);</span><br><span class="line"></span><br><span class="line"><span class="comment">//f3 是函数表达式</span></span><br><span class="line"><span class="keyword">var</span> f3=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f3()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f3 say hello!&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">f1(f3);</span><br></pre></td></tr></table></figure>
+
+<p>其实很简单，就是在外面包一层另外的函数，然后在这个另外函数里面执行真正的函数。另外， function 是一个引用类型的对象，看例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((f3=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I am f3()&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;f3 say hello to &#x27;</span> + x +<span class="string">&#x27;!&#x27;</span>;</span><br><span class="line">&#125;)(<span class="string">&#x27;wanglin&#x27;</span>));</span><br><span class="line"><span class="comment">//I am f3()</span></span><br><span class="line"><span class="comment">// f3 say hello to wanglin!</span></span><br></pre></td></tr></table></figure>
+
+<p>底下我们来看两个值互相交换，要怎么写呢？详解请看下例，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> y=<span class="number">6</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=a;</span><br><span class="line">	a=b;</span><br><span class="line">	b=c;</span><br><span class="line">&#125;</span><br><span class="line">exchange(x,y);</span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">&#x27; &#x27;</span> + y);<span class="comment">//5 6</span></span><br></pre></td></tr></table></figure>
+
+<p>诶？怎么回事，没有发生交换啊，别慌，再来，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> y=[<span class="number">6</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=a[<span class="number">0</span>];</span><br><span class="line">	a[<span class="number">0</span>]=b[<span class="number">0</span>];</span><br><span class="line">	b[<span class="number">0</span>]=c;</span><br><span class="line">&#125;</span><br><span class="line">exchange(x,y);</span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">&#x27; &#x27;</span> + y);<span class="comment">//6 5</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么 x,y 的类型换成数组，就可以交换数值了呢？这就是我们为什么要试图去理解引用和值，值在函数里边是换不过来的，但是，如果是引用的话是可以的，因为引用操作的是真实的堆里面的东西。</p>
+<h4 id="5-14-嵌套函数"><a href="#5-14-嵌套函数" class="headerlink" title="5.14  嵌套函数"></a>5.14  嵌套函数</h4><p>在 JavaScript 中，函数可以嵌套在另一个函数中进行定义，有点类似 Java 中的内部类，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hypotenuse</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//function square(x)&#123;</span></span><br><span class="line">	<span class="comment">//	return x*x;</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line">	<span class="keyword">var</span> square=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(square(a)+square(b));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hypotenuse(<span class="number">3</span>,<span class="number">4</span>));<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码片段中，函数 hypotenuse 中嵌套定义了函数 square 。这时，函数square只能在distance中被调用。如果我们想要在distance之外调用square函数，由于JavaScript中函数执行环境和变量作用域的限制，我们将得到一个很不友好的错误提示！所以，嵌套函数在未来我们讲闭包的时候带来很多很多的问题。</p>
+<h3 id="5-2-函数的调用"><a href="#5-2-函数的调用" class="headerlink" title="5.2  函数的调用"></a>5.2  函数的调用</h3><h4 id="5-21-函数调用"><a href="#5-21-函数调用" class="headerlink" title="5.21  函数调用"></a>5.21  函数调用</h4><p>JavaScript 中函数有4种调用方式，每种方式的不同在于 this 的初始化。一般而言，在 JavaScript 中， this 指向函数执行的当前对象。</p>
+<p>作为一个函数调用，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line">myFunction(<span class="number">10</span>, <span class="number">2</span>);           <span class="comment">// myFunction(10, 2) 返回 20</span></span><br></pre></td></tr></table></figure>
+
+<p>作为方法调用，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.add=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>作为构造函数调用，构造函数调用这个的话，后面章节会继续深入讲解，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.构造函数</span></span><br><span class="line"><span class="keyword">var</span> arr=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure>
+
+<p>间接调用   间接调用和直接调用唯一的区别是可以绑定 this 指针。如果不考虑 this ，下面这三种写法完全一样的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hypotenuse</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(a*a+b*b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">this</span>.hypotenuse(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">hypotenuse.call(<span class="built_in">this</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">hypotenuse.apply(<span class="built_in">this</span>,[<span class="number">3</span>,<span class="number">4</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111262146175.png"></p>
+<h4 id="5-22-形参和实参"><a href="#5-22-形参和实参" class="headerlink" title="5.22  形参和实参"></a>5.22  形参和实参</h4><p>什么是形参，什么又是实参？形参和实参是不一样的，数量、类型都可以不一样，形参和实参会绑定,动态关联。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b,c</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(foo.length);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">arguments</span>[<span class="number">1</span>]=-<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-递归"><a href="#5-3-递归" class="headerlink" title="5.3  递归"></a>5.3  递归</h3><p>递归构造：</p>
+<ul>
+<li>找到已知 f(x-1) 情况下，如何求解 f(x) 的通式；</li>
+<li>找到递归的基石，比如 f(0) 、f(1) 的值；</li>
+</ul>
+<p>递归真正在工业中是很少使用的，一般是适用于学校性的学习。但是，递归的用法还是挺好用的，主要是考虑到栈的问题，当然，如果系统分配的栈大一点的话，整个递归问题就会进一步得到改善。我们来看个递归的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归的例子</span></span><br><span class="line"><span class="comment">//有一行台阶，阶数是 n 。一次走一步，两步，三步，对于阶数为 n 的一共有多少种走法？</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(n)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">		    <span class="keyword">return</span> (step(n-<span class="number">3</span>)+step(n-<span class="number">2</span>)+step(n-<span class="number">1</span>));</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(step(<span class="number">5</span>));<span class="comment">//13</span></span><br><span class="line"><span class="comment">//step(1):1</span></span><br><span class="line"><span class="comment">//step(2):2</span></span><br><span class="line"><span class="comment">//step(3):1+step(2)+step(1)=4</span></span><br><span class="line"><span class="comment">//step(4):step(1)+step(2)+step(3)=7</span></span><br><span class="line"><span class="comment">//step(n)=step(n-3)+step(n-2)+step(n-1)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/16/04-%E6%95%B0%E7%BB%84/" rel="prev" title="数组">
+      <i class="fa fa-chevron-left"></i> 数组
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/29/06-%E5%AF%B9%E8%B1%A1/" rel="next" title="对象">
+      对象 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">5.1  函数定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-11-%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">5.11  函数声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-12-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E5%91%BD%E5%90%8D%E3%80%81%E5%8C%BF%E5%90%8D%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">5.12  函数表达式（命名、匿名）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-13-%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.3.</span> <span class="nav-text">5.13  函数作为参数传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-14-%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">5.14  嵌套函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">5.2  函数的调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-21-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">5.21  函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-22-%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82"><span class="nav-number">2.2.</span> <span class="nav-text">5.22  形参和实参</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E9%80%92%E5%BD%92"><span class="nav-number">3.</span> <span class="nav-text">5.3  递归</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">唯初</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯初</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

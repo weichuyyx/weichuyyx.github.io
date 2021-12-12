@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="6.1  对象6.11  对象创建123456789101112131415161718192021222324252627&#x2F;&#x2F;对象&#x2F;&#x2F;对象的创建var obj1&#x3D;[];var obj2&#x3D;new Object();&#x2F;&#x2F;两个方法都可以&#x2F;*注意：与 function 不同的是，对象的变量要用逗号间隔开，最后一个变量后面不用加符号*&#x2F;var objBook &#x3D; &amp;#123;	name:&amp;#x27;Boo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象">
+<meta property="og:url" content="http://example.com/2021/11/29/06-%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="唯初 · Blog">
+<meta property="og:description" content="6.1  对象6.11  对象创建123456789101112131415161718192021222324252627&#x2F;&#x2F;对象&#x2F;&#x2F;对象的创建var obj1&#x3D;[];var obj2&#x3D;new Object();&#x2F;&#x2F;两个方法都可以&#x2F;*注意：与 function 不同的是，对象的变量要用逗号间隔开，最后一个变量后面不用加符号*&#x2F;var objBook &#x3D; &amp;#123;	name:&amp;#x27;Boo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-29T12:46:53.981Z">
+<meta property="article:modified_time" content="2021-12-10T11:28:57.860Z">
+<meta property="article:author" content="唯初">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/11/29/06-%E5%AF%B9%E8%B1%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>对象 | 唯初 · Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">唯初 · Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/06-%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="唯初">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唯初 · Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对象<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/06-%E5%AF%B9%E8%B1%A1.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-29 20:46:53" itemprop="dateCreated datePublished" datetime="2021-11-29T20:46:53+08:00">2021-11-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-10 19:28:57" itemprop="dateModified" datetime="2021-12-10T19:28:57+08:00">2021-12-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="6-1-对象"><a href="#6-1-对象" class="headerlink" title="6.1  对象"></a>6.1  对象</h3><h4 id="6-11-对象创建"><a href="#6-11-对象创建" class="headerlink" title="6.11  对象创建"></a>6.11  对象创建</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象</span></span><br><span class="line"><span class="comment">//对象的创建</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1=[];</span><br><span class="line"><span class="keyword">var</span> obj2=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//两个方法都可以</span></span><br><span class="line"><span class="comment">/*注意：与 function 不同的是，对象的变量要用逗号间隔开，最后一个变量后面不用加符号*/</span></span><br><span class="line"><span class="keyword">var</span> objBook = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;Book Name&#x27;</span>,<span class="comment">//原始成员</span></span><br><span class="line">	<span class="attr">pageNumber</span>:<span class="number">300</span>,</span><br><span class="line">	<span class="attr">author</span>:&#123;<span class="comment">//引用成员</span></span><br><span class="line">		<span class="attr">firstname</span>:<span class="string">&#x27;aaa&#x27;</span>,</span><br><span class="line">		<span class="attr">lastname</span>:<span class="string">&#x27;bbb&#x27;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">query</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//成员函数</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;query&#x27;</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">addPage</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.pageNumber++;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;addPage&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(++objBook.pageNumber);<span class="comment">//301</span></span><br><span class="line">objBook.query();<span class="comment">//query</span></span><br><span class="line">objBook[<span class="string">&#x27;query&#x27;</span>]();<span class="comment">//query</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-12-对象属性"><a href="#6-12-对象属性" class="headerlink" title="6.12  对象属性"></a>6.12  对象属性</h4><p>在 js 中，对象要怎么增加属性呢，有以下这几种方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.a=<span class="string">&#x27;aaa&#x27;</span>;</span><br><span class="line">obj[<span class="string">&#x27;b&#x27;</span>]=<span class="string">&#x27;bbb&#x27;</span>;<span class="comment">//等价于 obj.b=&#x27;bbb&#x27;;</span></span><br></pre></td></tr></table></figure>
+
+<p>object 增加属性不需要声明，直接使用就可以，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.f1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;fff......&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建了对象属性之后，想要删除修改要怎么做呢？删除属性，首先是先查询一个属性是否存在。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.in</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> obj));<span class="comment">//true</span></span><br><span class="line"><span class="comment">//2.hasOwnProperty()</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>当结果为 true 时，表示系统查询到了该属性，接下去就是删除，删除一般就一个方法，delete ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//delete</span></span><br><span class="line"><span class="keyword">delete</span> obj.a;</span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> obj));<span class="comment">//false，表示已经删除</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//false</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+
+<p>这是属性的删除方法。</p>
+<p>那改的话怎么改呢，修改属性其实很简单的，直接上手改动就行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.a=<span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，a 已经被改掉了值。然后呢，有一个东西叫做枚举，看到这，是不是大家就会感觉到其实 object 跟数组极其相似。枚举是什么呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(p);<span class="comment">//1 a f1</span></span><br><span class="line">&#125;</span><br><span class="line">obj.toString();<span class="comment">//1 a f1</span></span><br></pre></td></tr></table></figure>
+
+<p>我们调用 toString 的时候，结果也是跟 for 循环的结果一样，所以说，toString  并不是直接挂在 obj 上面的，它是挂在它底下的原形上的，这是一种类似继承的方法。 javascript 所面对的环境并不是很复杂的环境，主要是脚本前端的渲染，交互和一些游戏这些方面的语言，给人一眼看过去就会的语言。能够枚举的东西都是它自己的，不能枚举的都是它从别人那继承过来的，而且这种继承关系更像是一种委托。就类似于设计界找枪手的例子，为了自己的某种目的，把别人的东西变成自己的。怎么检测一个东西是否可以枚举呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(obj.propertyIsEnumerable(<span class="string">&#x27;a&#x27;</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.propertyIsEnumerable(<span class="string">&#x27;toString()&#x27;</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-13-自定义构造函数"><a href="#6-13-自定义构造函数" class="headerlink" title="6.13  自定义构造函数"></a>6.13  自定义构造函数</h4><p>我们现在的对象都是从 object 里面生成出来的，在上面加上我们想要添加的东西，那我们是不是每做一个对象，都要重复这样操作呢，其实不是的，有一个东西叫做构造函数。返回对象创建那块，如果我们需要两个对象的情况下，怎么做，直接 copy ？当然是 no 了，这样修改其中一个对象的话也会麻烦，更加不符合我们之前说的同样的事情要用同样的过程把它分装起来，类似的步骤，我们可以把它分装在固定的位置，好处就是以后在不同的地方调用，改一个函数即可。</p>
+<p>所以，我们需要一种函数能够每次以相同的方式构造对象，同时，在改动这个函数所有的对象都能跟着改变，这就需要一个构造函数，说的通俗点就是 class 。构造函数名称以大写字母开头，这只是约定俗成，并不是语言要求。举例说下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age,gender</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name=name;</span><br><span class="line">	<span class="built_in">this</span>.age=age;</span><br><span class="line">	<span class="built_in">this</span>.gender=gender;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> std=<span class="keyword">new</span> Student(<span class="string">&#x27;WangLin&#x27;</span>,<span class="number">30</span>,<span class="string">&#x27;male&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这边呢，有三种命名规则：</p>
+<ul>
+<li><p>匈牙利命名规则：属性 + 类型 + 对象描述</p>
+<p>  属性：成员变量 m_   静态成员 s_      普通 &lt;没有&gt;</p>
+<p>  类型：整形 i ，数组 a ，字符串 str </p>
+<p>  对象描述：单词 + 单词。。。。，首字母大写</p>
+</li>
+<li><p>小驼峰命名规则：对象描述</p>
+<p>  第一个单词的首字母小写，其他单词的首字母大写</p>
+</li>
+<li><p>大驼峰命名规则：对象描述</p>
+<p>  第一个单词的首字母大写，其他单词的首字母大写</p>
+<p>  命名是很重要的，体现了我们代码人的素养。越后来，可能越来越少的人会使用匈牙利命名规则，特别是 window 不是特别热的情况下，所以，小驼峰和大驼峰会成为大多数人的趋向。我们会发现构造函数使用的是大驼峰命名规则，而 object 对象的成员函数使用的是小驼峰命名规则。</p>
+</li>
+</ul>
+<h4 id="6-14-包装类"><a href="#6-14-包装类" class="headerlink" title="6.14  包装类"></a>6.14  包装类</h4><ul>
+<li><p>Number()  vs  number</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n1=<span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> n2=<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);<span class="comment">//构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));<span class="comment">//object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n3=n1+n2;</span><br><span class="line"><span class="built_in">console</span>.log(n3);<span class="comment">//246</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>String()  vs  string</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1=<span class="string">&#x27;aaa&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> s2=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&#x27;aaa&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(s1));<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(s2));<span class="comment">//object</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>Boolean()  vs  boolean</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b1=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> b2=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b1));<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b2));<span class="comment">//object</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>包装类的隐式调用</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.length=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">&#x27;1234&#x27;</span>;</span><br><span class="line"><span class="comment">//str.length=2;</span></span><br><span class="line"><span class="keyword">var</span> strTmp=<span class="keyword">new</span> <span class="built_in">String</span>(str);</span><br><span class="line">strTmp.length=<span class="number">2</span>;</span><br><span class="line"><span class="comment">//strTmp 摧毁</span></span><br><span class="line"><span class="built_in">console</span>.log(str);<span class="comment">//1234</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iNum=<span class="number">123</span>;</span><br><span class="line"><span class="comment">//iNum.toString();</span></span><br><span class="line"><span class="keyword">var</span> iTmp=<span class="keyword">new</span> <span class="built_in">Number</span>(iNum);</span><br><span class="line">iTmp.toString();</span><br><span class="line"><span class="comment">//iTmp 摧毁</span></span><br><span class="line"><span class="built_in">console</span>.log(iNum);<span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="6-2-预编译"><a href="#6-2-预编译" class="headerlink" title="6.2  预编译"></a>6.2  预编译</h3><p>JavaScript 引擎的三大步骤：</p>
+<ul>
+<li><p>预编译（第一次\前置扫描）</p>
+<p>  脚本：</p>
+<ul>
+<li><p>创建全局对象 GO(window) （上下文）</p>
+</li>
+<li><p>加载脚本文件</p>
+</li>
+<li><p>预编译</p>
+<ul>
+<li>找出所有的变量声明，按照变量名加入全局对象，如果已经存在，忽略。</li>
+<li>找出所有的函数声明，按照函数名加入全局对象，如果已经存在同名变量或者函数，替换。</li>
+<li>非声明不予理睬</li>
+</ul>
+</li>
+<li><p>解释执行</p>
+</li>
+</ul>
+</li>
+<li><p>解释执行（第二次扫描）</p>
+</li>
+</ul>
+<h4 id="6-21-预编译——脚本"><a href="#6-21-预编译——脚本" class="headerlink" title="6.21  预编译——脚本"></a>6.21  预编译——脚本</h4><p>编译呢，是指把代码变成块结构的语言，就是机器码，然后把编好的块链接起来，组装成 .exe 或者是 .dl 的过程叫做链接。预编译其实是编译里最早的东西。在 c++ 里面，我们拿到一个函数都是先把它声明，再去实现，那么，预编译是把所有的声明都扫描出来，扫描到一个名字表里面去，然后知道这个东西以后，在编译时才能知道是否有这么一个东西。</p>
+<p>没有 var 的变量（都不是变量声明），全部认为是 window 的全局变量，不参与预编译。举个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>这个结果是毫无疑问的，那么，我们再来看个，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line">aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line"><span class="comment">//Uncaught ReferenceError: aa is not defined</span></span><br><span class="line">    at ds7-<span class="number">5.</span>js:<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>结果是会报错，那如果按照预编译的理解，改成这样子呢，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//undefied</span></span><br><span class="line"><span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么会这样子？很简单，就是我们上面说的，这是段脚本语言，拿到这个脚本，先是创建全局对象，然后按照流程，找出所有的变量声明，这边只有 aa ,把变量名 aa 加入全局对象，即aa 已经存入 window 中，没有函数声明，就直接继续执行，执行的话，第一行语句，因为 aa 已经存进 window 中，但是没有定义，所以输出的结果是 undefined ，然后第二行语句，将5赋值给 aa ,所以第三行语句输出5。</p>
+<p>即使在函数中，aa 也是全局变量，是在运行时，而不是定义时。举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	a=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+<p>大家根据预编译的步骤想想，这样会不会报错，会的，因为 test() 函数并没有被纳入 window 中，想让程序不报错的话，我们要先定义函数，让它首先被 window 存入，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	a=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>这样子结果就是正确的。</p>
+<p>在脚本中，所有变量声明在脚本的预编译阶段完成，所有变量的声明与实际的书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(aa);</span><br><span class="line"><span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa);</span><br></pre></td></tr></table></figure>
+
+<p>脚本中，所有函数声明在脚本的与编译阶段完成，所有函数的声明与实际书写位置无关。例如，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line"><span class="comment">//ƒ haha()&#123;</span></span><br><span class="line"><span class="comment">//	console.log(&#x27;h1&#x27;);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>脚本中，如果变量与函数同名，那么，函数将覆盖变量。举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line"><span class="comment">//ƒ haha()&#123;</span></span><br><span class="line"><span class="comment">//	console.log(&#x27;h1&#x27;);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，函数就将变量给覆盖掉，不然的话，运行结果应该在本结果的前面加一个 undefined 。</p>
+<p>脚本中，只有函数能够覆盖变量，变量无法覆盖函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(haha);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">var</span> haha=<span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<p>脚本中，后面的函数声明会覆盖前面的函数声明，并且会忽略参数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">haha(<span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;haha1&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;haha2&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-22-预编译——函数调用"><a href="#6-22-预编译——函数调用" class="headerlink" title="6.22  预编译——函数调用"></a>6.22  预编译——函数调用</h4><p>函数调用：</p>
+<ul>
+<li><p>创建活动对象 AO(Active Object)</p>
+</li>
+<li><p>预编译：</p>
+<ul>
+<li>scope chain</li>
+<li>初始化 arguments</li>
+<li>初始化形参，将 arguments 中的值赋给形参</li>
+<li>找出所有的变量声明，按照变量名加入 AO ，如果已经存在，忽略。</li>
+<li>找出所有的函数声明，按照函数名加入 AO ，如果已经存在同名变量或者函数，替换。</li>
+<li>this 初始化</li>
+</ul>
+</li>
+<li><p>解释执行</p>
+</li>
+</ul>
+<p>函数中，所有变量声明，在函数的预编译阶段完成，所有变量的声明与实际书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(aa);</span><br><span class="line">	<span class="keyword">var</span> aa=<span class="number">5</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(aa);</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，所有函数声明在函数的预编译段完成，所有函数的声明与实际书写位置无关。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，如果变量与函数同名，那么，函数将覆盖变量。举例，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	<span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，只有函数能够覆盖变量，变量无法覆盖函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> haha=<span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>函数中，后面的函数声明会覆盖前面的函数声明，并且会忽略参数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(haha);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">&#x27;haha1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">haha</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">&#x27;haha2&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>当函数预编译后，遇到需要访问的变量或者函数，优先考虑自己 AO 中定义的变量和函数，如果找不到才会在其定义的上一层 AO 中寻找<br>，如果再找不到才会在其定义的上一层 AO 中寻找，直到到达 GO 。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;local&#x27;</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//local</span></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//global</span></span><br></pre></td></tr></table></figure>
+
+<p>首先是脚本的预编译，变量 scope , t 已经放入 window 中， 大致思路如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GO:</span><br><span class="line">scope:<span class="literal">undefined</span> -&gt;<span class="string">&#x27;global&#x27;</span></span><br><span class="line"><span class="attr">t</span>:<span class="function"><span class="keyword">function</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">t</span>-<span class="title">AO</span>://函数执行退出的时候， <span class="title">t</span>-<span class="title">AO</span> 被摧毁</span></span><br><span class="line"><span class="function"><span class="title">scope</span>:<span class="title">undefined</span> -&gt;&#x27;<span class="title">local</span>&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>看个前端工程师的面试题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> scope=<span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">&#x27;t-local&#x27;</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">t2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(scope);<span class="comment">//undefined</span></span><br><span class="line">		<span class="keyword">var</span> scope=<span class="string">&#x27;t2-local&#x27;</span>;</span><br><span class="line">		<span class="built_in">console</span>.log(scope);<span class="comment">//t2-local</span></span><br><span class="line">	&#125;</span><br><span class="line">	t2();</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//t-local</span></span><br><span class="line">&#125;</span><br><span class="line">t();</span><br><span class="line"><span class="built_in">console</span>.log(scope);<span class="comment">//global</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>遵循函数调用的原则，大致思路如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//GO:</span></span><br><span class="line"><span class="comment">//scope:undefined</span></span><br><span class="line"><span class="comment">//t:function//预编译结束</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////运行</span></span><br><span class="line"><span class="comment">//GO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;global</span></span><br><span class="line"><span class="comment">//t:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////预编译</span></span><br><span class="line"><span class="comment">//t-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined </span></span><br><span class="line"><span class="comment">//t2:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">////运行</span></span><br><span class="line"><span class="comment">//t-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;&#x27;t-local&#x27;</span></span><br><span class="line"><span class="comment">//t2:function</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//t2-AO:</span></span><br><span class="line"><span class="comment">//scope:undefined -&gt;&#x27;t2-local&#x27;//被摧毁</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/24/05-%E5%87%BD%E6%95%B0/" rel="prev" title="函数">
+      <i class="fa fa-chevron-left"></i> 函数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/10/07-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%20&%20%E9%97%AD%E5%8C%85/" rel="next" title="作用域链 & 闭包">
+      作用域链 & 闭包 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">6.1  对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-11-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">6.11  对象创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">6.12  对象属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-13-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">6.13  自定义构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-14-%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">6.14  包装类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E9%A2%84%E7%BC%96%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">6.2  预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-21-%E9%A2%84%E7%BC%96%E8%AF%91%E2%80%94%E2%80%94%E8%84%9A%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">6.21  预编译——脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-22-%E9%A2%84%E7%BC%96%E8%AF%91%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">2.2.</span> <span class="nav-text">6.22  预编译——函数调用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">唯初</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯初</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

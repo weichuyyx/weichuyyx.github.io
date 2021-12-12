@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="4.1  数组今天又是学习的一天，接下来我们开始看数组，这是一个非常重要的对象，而且是我们除了原始对象以外，经常用到的一个对象，对于整个 Js 的学习非常重要。本次学习主要学习数组的定义，即如何创建数组，几种轮询数组的方法，还有就是一些数组常用的函数。 4.11 创建数组首先，我们学习的是怎么创建一个数组并把它初始化，这就好比如我们在建房子的时候，得先了解怎么建房，建成什么规格的。底下我们来看代码">
@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111172202353.PNG">
 <meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111192121826.PNG">
 <meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111212138521.PNG">
+<meta property="og:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111242040963">
 <meta property="article:published_time" content="2021-11-16T14:27:07.590Z">
-<meta property="article:modified_time" content="2021-11-23T12:22:02.322Z">
+<meta property="article:modified_time" content="2021-11-24T14:37:08.638Z">
 <meta property="article:author" content="唯初">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111172202353.PNG">
@@ -118,12 +119,32 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar fa-fw"></i>日程表</a>
 
   </li>
   </ul>
@@ -167,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数组
+          数组<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/04-%E6%95%B0%E7%BB%84.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
         </h1>
 
         <div class="post-meta">
@@ -184,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 20:22:02" itemprop="dateModified" datetime="2021-11-23T20:22:02+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-24 22:37:08" itemprop="dateModified" datetime="2021-11-24T22:37:08+08:00">2021-11-24</time>
               </span>
 
           
@@ -276,13 +297,27 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//slice(iStart[,iEnd]) </span></span><br><span class="line"><span class="comment">//slice(iStart,iEnd)</span></span><br><span class="line"><span class="comment">//slice(iStart)</span></span><br></pre></td></tr></table></figure>
 
 <p>上面主要是 slice() 函数的写法，大家注意下， [] 里面的数可有可不有，不会产生影响。用法示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr7=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">6</span>));<span class="comment">//从第六开始    6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">3</span>));<span class="comment">//后三个   6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">2</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">7</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr7=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">6</span>));<span class="comment">//从第六开始    6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">3</span>));<span class="comment">//后三个   6，7，8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(<span class="number">2</span>,<span class="number">5</span>));<span class="comment">//2，3，4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[slice] &#x27;</span> + arr7.slice(-<span class="number">7</span>,<span class="number">5</span>));<span class="comment">//2，3，4，从 -7 的位置开始，到第五的位置结束</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在这边呢，要注意下，正着数的时候是从 0 开始数的，而倒着数的时候是从 1 开始数的，这是所有程序员从今往后要习惯的事情。</p>
 <h4 id="4-32-splice-函数"><a href="#4-32-splice-函数" class="headerlink" title="4.32  splice() 函数"></a>4.32  splice() 函数</h4><p>splice 主要用来对 js 中的数组进行操作，包括删除，添加，替换等，与 slice 函数不同的是 splice() 函数操作完原数组会受到影响。splice(iIndex[, iHowmany][,item1]),从 iIndex 开始，删除元素，删除几个由 iHowmany 决定, item1 是要插入的元素。示例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> arr1=arr.splice(<span class="number">6</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1，2，3，4，5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//6，7，8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0，1,5,6,7,8，这边相当于从下标为 2 的位置开始，删除 3 个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4，返回删除掉的三个元素</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(-<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,5,6,7,8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br><span class="line"></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">arr1=arr.splice(<span class="number">2</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">3</span>,-<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr);<span class="comment">//0,1,-1,-2,-3,-4,5,6,7,8；在删除掉的地方插入后面四个元素</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[splice] &#x27;</span> + arr1);<span class="comment">//2,3,4</span></span><br></pre></td></tr></table></figure>
 
-<p>要开始6.11</p>
+<h4 id="4-33-delete"><a href="#4-33-delete" class="headerlink" title="4.33 delete"></a>4.33 delete</h4><p>在JavaScript中，delete操作符用的比较少，但是还是比较重要的，我们在这块就举个例子说明下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//delete</span></span><br><span class="line">arr=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[delete] &#x27;</span> + arr);<span class="comment">//0,1,2,3,4,5,6,7,8</span></span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[delete] &#x27;</span> + arr + <span class="string">&#x27;=====&#x27;</span> + arr.length);<span class="comment">// 0,1,2,3,,5,6,7,8=====9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-内存问题"><a href="#4-4-内存问题" class="headerlink" title="4.4  内存问题"></a>4.4  内存问题</h3><h4 id="4-41-值类型-vs-引用类型"><a href="#4-41-值类型-vs-引用类型" class="headerlink" title="4.41  值类型 vs 引用类型"></a>4.41  值类型 vs 引用类型</h4><p>回顾下之前学的值类型都有哪些呢？值类型：number , string , Boolean , undefined , null ; 而引用类型有：array , function , object 。这些涉及的是要在栈里分配还是队列分配。</p>
+<p>这边的栈跟之前代码里面规约四则运算式的栈是不一样的，他们相同的点的是都有相同的数据的操作方式，就是后进先出，但是，事实上，之前的栈是 javascript 的对象，是你在写业务代码的时候，提供的一个栈的功能给你，而今天要学的这个栈，是 javascript 引擎在它的代码层运用，javascript 引擎并不是存在于 javascript , 而是 C++  。</p>
+<p>值类型存储在栈里面，引用类型存储在堆里面。因为值类型占用空间小、大小固定，通过按值来访问，属于被频繁使用的数据，而因为引用类型占据空间大、大小不固定。 如果存储在栈中，将会影响程序运行的性能； 引用类型在栈中存储了指针，该指针指向堆中该实体的起始地址。 当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。比如说：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">5</span>;<span class="comment">//key 是变量名 a，value 是 5</span></span><br><span class="line"><span class="keyword">var</span> b=a;</span><br><span class="line"><span class="keyword">var</span> arr=[];<span class="comment">//key 是变量名 arr，value 是[]的地址（引用），现阶段来说，引用就是地址，但是严格来说的话，引用并不能当作是地址</span></span><br><span class="line"><span class="keyword">var</span> arr1=arr;</span><br><span class="line"><span class="keyword">var</span> a=[];</span><br><span class="line"><span class="keyword">var</span> s=<span class="string">&#x27;abc&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个变量 a ，arr 是存在于栈内存里边的，在栈内存里面的如果是值类型的话，就可以一起放进去，但是，如果后面是数组的话，数组放在堆内存里边，然后把它的地址放到栈里边，即 arr 的位置，可以说是，栈内存小，堆内存大。如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a1 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a2 = <span class="string">&#x27;this is string&#x27;</span>;</span><br><span class="line"><span class="comment">// 基本数据类型-栈内存</span></span><br><span class="line"><span class="keyword">let</span> a3 = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的指针存放在栈内存中，指针指向的对象存放在堆内存中</span></span><br><span class="line"><span class="keyword">let</span> b = &#123; <span class="attr">m</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="comment">// 数组的指针存放在栈内存中，指针指向的数组存放在堆内存中</span></span><br><span class="line"><span class="keyword">let</span> c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/huangjiabaoaiyc/image/raw/master/202111242040963"></p>
+<h4 id="4-42-栈-vs-堆"><a href="#4-42-栈-vs-堆" class="headerlink" title="4.42  栈 vs 堆"></a>4.42  栈 vs 堆</h4><p>堆内存中对象，有一个引用计数，就是 GC ，就是用来垃圾收集，通俗点说就是知道什么东西已经不用，而什么东西还要用，内存回收的机制，最早是由 MS COM 实现的。GC 的作用时间，第一是，堆内存达到一定的门槛，第二是，定期。<br>谁的引用数是0，就被摧毁。而栈内存是当代码运行到栈内变量的作用域以外时，变量将被摧毁（就是内存里边删除了），如果变量被摧毁，引用数-1。来看个底下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//循环引用</span></span><br><span class="line"><span class="keyword">var</span> a1=[];</span><br><span class="line"><span class="keyword">var</span> a2=[];</span><br><span class="line"></span><br><span class="line">a1[<span class="number">0</span>]=a2;</span><br><span class="line">a2[<span class="number">0</span>]=a1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//栈内存</span></span><br><span class="line">ST001:a1,HP001<span class="comment">//运行 a1,栈内存存放 a1 和地址，[]存放在堆内存中，计数为1</span></span><br><span class="line"><span class="attr">ST002</span>:a2,HP002<span class="comment">//运行 a2,栈内存存放 a2 和地址，[]存放在堆内存中，计数为1</span></span><br><span class="line"><span class="attr">ST003</span>:</span><br><span class="line">ST004:</span><br><span class="line">ST005:</span><br><span class="line">ST006:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//堆内存</span></span><br><span class="line">HP001:[HP002],(<span class="number">2</span>)<span class="comment">//运行第三个式子，将 a2地址赋给 a1[0],计数 +1，即为2</span></span><br><span class="line"><span class="attr">HP002</span>:[HP001],(<span class="number">2</span>)<span class="comment">//同上解释</span></span><br><span class="line"><span class="attr">HP003</span>:</span><br><span class="line">HP004:</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -301,7 +336,10 @@
     <a href="/2021/11/11/03-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="prev" title="变量和数据类型">
       <i class="fa fa-chevron-left"></i> 变量和数据类型
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/24/05-%E5%87%BD%E6%95%B0/" rel="next" title="函数">
+      函数 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -360,7 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">4.1  数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-11-%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">4.11 创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-12-for-in"><span class="nav-number">1.2.</span> <span class="nav-text">4.12  for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-13-concat"><span class="nav-number">1.3.</span> <span class="nav-text">4.13  concat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-14-join"><span class="nav-number">1.4.</span> <span class="nav-text">4.14  join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-15-sort"><span class="nav-number">1.5.</span> <span class="nav-text">4.15  sort()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">4.2   数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-21-%E6%A0%88"><span class="nav-number">2.1.</span> <span class="nav-text">4.21  栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-22-%E9%98%9F%E5%88%97"><span class="nav-number">2.2.</span> <span class="nav-text">4.22  队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">4.3  数组中的成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-31-slice-%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">4.31  slice() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-32-splice-%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">4.32  splice() 函数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">4.1  数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-11-%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">4.11 创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-12-for-in"><span class="nav-number">1.2.</span> <span class="nav-text">4.12  for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-13-concat"><span class="nav-number">1.3.</span> <span class="nav-text">4.13  concat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-14-join"><span class="nav-number">1.4.</span> <span class="nav-text">4.14  join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-15-sort"><span class="nav-number">1.5.</span> <span class="nav-text">4.15  sort()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">4.2   数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-21-%E6%A0%88"><span class="nav-number">2.1.</span> <span class="nav-text">4.21  栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-22-%E9%98%9F%E5%88%97"><span class="nav-number">2.2.</span> <span class="nav-text">4.22  队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">4.3  数组中的成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-31-slice-%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">4.31  slice() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-32-splice-%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">4.32  splice() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-33-delete"><span class="nav-number">3.3.</span> <span class="nav-text">4.33 delete</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">4.4  内存问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-41-%E5%80%BC%E7%B1%BB%E5%9E%8B-vs-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">4.41  值类型 vs 引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-42-%E6%A0%88-vs-%E5%A0%86"><span class="nav-number">4.2.</span> <span class="nav-text">4.42  栈 vs 堆</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,7 +412,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -408,7 +446,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">唯初</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -434,7 +472,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
